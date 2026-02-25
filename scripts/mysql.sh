@@ -8,6 +8,7 @@
 CONFIG_FILE="$(dirname "$0")/../resources/config_file.ini"
 DATA_FILE="$(dirname "$0")/../data/sales.csv"
 
+
 # ──────────────────────────────────────────────
 # Parse config.ini for [mysql] section
 # ──────────────────────────────────────────────
