@@ -1,0 +1,9 @@
+faker 
+loguru
+mysql-connector-python
+pydantic
+pandas
+pymongo
+psycopg2-binary
+
+

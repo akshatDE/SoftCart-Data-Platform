@@ -1,0 +1,16 @@
+SoftCart-Data-Platform/mysql/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# IDE
+.vscode/
+
+# Config with secrets
+SoftCartCapstone/resources/config_file.ini
+
+# OS
+.DS_Store
+
