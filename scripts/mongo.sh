@@ -1,4 +1,4 @@
-claude#!/bin/bash
+#!/bin/bash
 
 # ──────────────────────────────────────────────
 # MongoDB Data Import Script
@@ -44,11 +44,13 @@ ENCODED_PASSWORD=$(python3 -c "from urllib.parse import quote_plus; print(quote_
 MONGO_URI="mongodb://${USERNAME}:${ENCODED_PASSWORD}@${HOST}:${PORT}/${DATABASE}?authSource=${AUTH_SOURCE}"
 
 echo "Starting data import into ${DATABASE}.${COLLECTION} from ${DATA_FILE}"
+mongosh "$MONGO_URI" --eval "db.getSiblingDB('$DATABASE').$COLLECTION.drop()"
 
 mongoimport --uri "$MONGO_URI" \
             --db "$DATABASE" \
             --collection "$COLLECTION" \
             --file "$DATA_FILE" \
+            --mode=upsert \
             --jsonArray
 
 if [ $? -eq 0 ]; then

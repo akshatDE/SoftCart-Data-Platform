@@ -15,7 +15,7 @@ def generate_transactions(catalog,n):
 
             prod = random.choice(catalog)
             prod_id = prod['product_id']
-            prod_price = prod['product_price']
+            prod_price = float(prod['product_price'])
             customer_id = random.randint(1,1000)
             quantity = random.randint(1,20)
             timestp = faker.date_time_between(start_date="-2y", end_date="now")
@@ -23,9 +23,9 @@ def generate_transactions(catalog,n):
             sales_dict ={
                  "product_id":prod_id,
                 "customer_id":customer_id,
-                "qty":quantity,
+                "quantity":quantity,
                 "price":prod_price,
-                "timeStamp":timestp
+                "time_stamp":timestp
             }
             sales_data.append(sales_dict)
         return sales_data
@@ -33,6 +33,7 @@ def generate_transactions(catalog,n):
     except Exception as e:
          logger.info(f"Got some error {e}")
      
+
 
 if __name__ == "__main__":
     try:

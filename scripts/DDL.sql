@@ -1,5 +1,6 @@
 -- DDL For MYSQL
 CREATE TABLE sales_data (
+  transaction_id INT AUTO_INCREMENT PRIMARY KEY,
   product_id   INT NOT NULL,
   customer_id  INT NOT NULL,
   price        DECIMAL(10,2) NOT NULL,
