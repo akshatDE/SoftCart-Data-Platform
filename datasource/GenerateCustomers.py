@@ -5,10 +5,10 @@ from loguru import logger
 faker = Faker()
 def generate_customers():
     try:
-
+        customer_segment = ["Consumer","Corporate","Home Office"]
         customer_details = []
 
-        for i in range(1,1000):
+        for i in range(1,1001):
             while True:
                 fname = faker.first_name().strip()
                 lname = faker.last_name().strip()
@@ -22,10 +22,12 @@ def generate_customers():
                         "customer_id":customer_id,
                         "first_name":fname,
                         "last_name":lname,
-                        "email":email
+                        "email":email,
+                        "segment":random.choice(customer_segment)
             }
 
             customer_details.append(customer_dict)
         return customer_details
     except Exception as e:
         logger.info(f"Got some error{e}")
+

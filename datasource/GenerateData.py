@@ -1,5 +1,6 @@
 from datasource.GenerateCatalog import generate_catalog_data
 from datasource.GenerateProducts import generate_products,product_config
+from datasource.GenerateCustomers import generate_customers
 import pandas as pd 
 from loguru import logger
 import random
@@ -51,9 +52,15 @@ if __name__ == "__main__":
         transactional_df = pd.DataFrame(transactional_data)
         logger.info(f"transactional data generated with {len(transactional_df)} records")
 
-        # Writing data to data fir as json and csv 
-        catalog_df.to_json("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartCapstone/data/catalog.json",orient="records")
-        transactional_df.to_csv("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartCapstone/data/sales.csv",index=False)
+        customer_data = generate_customers()
+        customer_df = pd.DataFrame(customer_data)
+        logger.info(f"Customer data generated with {len(customer_df)} records.")
+
+
+        # Writing data to data  as json and csv 
+        catalog_df.to_json("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCart-Data-Platform/data/catalog.json",orient="records")
+        transactional_df.to_csv("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCart-Data-Platform/data/sales.csv",index=False)
+        customer_df.to_csv("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCart-Data-Platform/data/customers.csv",index=False)
 
     except Exception as e:
             logger.info(f"Got some exception {e}")

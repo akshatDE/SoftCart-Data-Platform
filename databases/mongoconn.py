@@ -1,12 +1,6 @@
 from pymongo import MongoClient
 from urllib.parse import quote_plus
 from loguru import logger
-import configparser
-
-config = configparser.ConfigParser()
-path = "/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCaft-CapStone/resources/config_file.ini"
-config.read(path)
-
 
 class MongoConnection:
     _instance = None 
@@ -46,4 +40,6 @@ class MongoConnection:
         if self.mongo_client:
             self.mongo_client.close()
             logger.info("MongoDB Connection closed")
+
+
 

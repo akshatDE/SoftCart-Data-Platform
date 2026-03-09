@@ -1,12 +1,9 @@
 import psycopg2
 import psycopg2.extras
 from loguru import logger
-import configparser
 import json
-
-config = configparser.ConfigParser()
-path = "/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartCapstone/resources/config_file.ini"
-config.read(path)
+from sqlalchemy import create_engine
+from urllib.parse import quote_plus
 
 class PostgreSQLConnection:
     """
@@ -84,40 +81,15 @@ class PostgreSQLConnection:
         except Exception as e:
             logger.error(f"PostgreSQL connection error: {e}")
             raise e
-
-class DataLoader:
-
-    def __init__(self,db_connection):
-        self.db_connection = db_connection
-
-    def load_json(self):
+    def get_engine(self):
         try:
-            json_data = []
-            # Reading file for getting data 
-            with open('/Users/akshatsharma/Desktop/Portfolio_Projects/SoftCart-DataPlatform/data/catalog.json','r') as f:
-                for line in f:
-                    if line.strip():
-                        json_data.append(json.loads(line.strip()))
-            
-            postgres_conn = PostgreSQLConnection.get_instance(config)
-            cursor = postgres_conn.connection.cursor()
-
-            cursor.execute("DELETE FROM electronics")
-            cursor.execute("ALTER SEQUENCE electronics_product_id_seq RESTART WITH 1")
-            logger.info("Cleared existing data and reset ID sequence")
-
-        
-            for item in json_data:
-                cursor.execute(
-                    "INSERT INTO product_catalog.public.electronics (product_data) VALUES (%s)",
-                    [json.dumps(item)]
-                )
-            postgres_conn.connection.commit()
-            logger.info(f"Data loaded successfully, rows: {len(json_data)}")
-            cursor.close()
-
+            pswd = quote_plus(self.config["postgresql"]["password"])
+            engine = create_engine(f"postgresql+psycopg2://{self.config["postgresql"]["user"]}:{pswd}@{self.config["postgresql"]["host"]}:{self.config["postgresql"]["port"]}/{self.config["postgresql"]["database"]}")
+            logger.info(f"Postgres engine created {engine}")
+            return engine
         except Exception as e:
-            logger.info(f"Eroor occured with expection {e}")
+            logger.info(f"Got some error {e} ")
+
         
 
     
