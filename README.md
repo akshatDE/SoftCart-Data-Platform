@@ -72,6 +72,7 @@ SoftCart-Data-Platform/
 ---
 
 ## Data Model
+![SoftCart_Data_Model](SoftCart_Data_Model.png)
 
 ### Source Systems (OLTP)
 
