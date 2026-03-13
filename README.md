@@ -189,7 +189,7 @@ database:softcart_staging
 - [x] Singleton connection managers
 - [x] Bash scripts for bulk loading
 - [x] ETL: MySQL/MongoDB → PostgreSQL staging
-- [ ] Dimensional modeling (star schema in analytics layer)
+- [x] Dimensional modeling (star schema in analytics layer)
 - [ ] Streamlit / Tableau dashboards
 - [ ] CRON scheduling
 - [ ] Apache Airflow migration
