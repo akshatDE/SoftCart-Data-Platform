@@ -10,6 +10,7 @@ __pycache__/
 
 # Config with secrets
 SoftCartCapstone/resources/config_file.ini
+.streamlit/
 
 # OS
 .DS_Store
