@@ -30,4 +30,3 @@ def generate_customers():
         return customer_details
     except Exception as e:
         logger.info(f"Got some error{e}")
-

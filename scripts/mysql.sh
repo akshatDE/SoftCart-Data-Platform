@@ -29,6 +29,7 @@ PASSWORD=$(parse_config "mysql" "root_password")   # uses root_password from con
 ROOT_USER="root"
 DATABASE=$(parse_config "mysql" "database")
 TABLE="sales_data"
+CUSTOMER_TABLE="customers"
 
 # ──────────────────────────────────────────────
 # Validate files exist before doing anything
@@ -96,5 +97,42 @@ if [ $? -eq 0 ]; then
     echo "Data imported successfully into ${DATABASE}.${TABLE}"
 else
     echo "Error during data import. Check connection details, table schema, and CSV format."
+    exit 1
+fi
+
+# ──────────────────────────────────────────────
+# Load customers data
+# ──────────────────────────────────────────────
+CUSTOMER_FILE="$(dirname "$0")/../data/customers.csv"
+CUSTOMER_CONTAINER_PATH="/var/lib/mysql-files/customers.csv"
+CUSTOMER_TABLE="customers"
+
+echo "Copying ${CUSTOMER_FILE} into container ${CONTAINER_NAME}..."
+docker cp "$CUSTOMER_FILE" "${CONTAINER_NAME}:${CUSTOMER_CONTAINER_PATH}"
+
+if [ $? -ne 0 ]; then
+    echo "Failed to copy customers file into container"
+    exit 1
+fi
+
+echo "Loading data into ${DATABASE}.${CUSTOMER_TABLE}..."
+
+docker exec -i "$CONTAINER_NAME" mysql \
+    -u "$ROOT_USER" \
+    -p"$PASSWORD" \
+    --database="$DATABASE" \
+    -e "
+LOAD DATA INFILE '${CUSTOMER_CONTAINER_PATH}'
+INTO TABLE ${CUSTOMER_TABLE}
+FIELDS TERMINATED BY ','
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+"
+
+if [ $? -eq 0 ]; then
+    echo "Customer data imported successfully into ${DATABASE}.${CUSTOMER_TABLE}"
+else
+    echo "Error during customer data import."
     exit 1
 fi
