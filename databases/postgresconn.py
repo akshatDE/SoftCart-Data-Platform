@@ -4,6 +4,7 @@ from loguru import logger
 import json
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
+from resources.encrypt_decrypt import decrypt
 
 class PostgreSQLConnection:
     """
@@ -72,7 +73,7 @@ class PostgreSQLConnection:
                 host=self.config["postgresql"]["host"],
                 port=self.config["postgresql"].get("port", 5432),  # Default PostgreSQL port
                 user=self.config["postgresql"]["user"],
-                password= self.config["postgresql"]["password"],
+                password= decrypt(self.config["postgresql"]["password"]),
                 database=self.config["postgresql"]["database"],
             )
             # Set autocommit to False (default behavior)

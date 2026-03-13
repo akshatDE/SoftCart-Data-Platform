@@ -19,9 +19,9 @@ st.markdown("---")
 # Connect to PostgreSQL
 try:
     conn = st.connection("postgresql", type="sql")
-    st.success("✅ Connected to PostgreSQL Database")
+    st.success("Connected to PostgreSQL Database")
 except Exception as e:
-    st.error(f"❌ Database Connection Error: {e}")
+    st.error(f"Database Connection Error: {e}")
     st.stop()
 
 # Check available schemas and tables
@@ -40,7 +40,7 @@ def get_available_tables():
         return None
 
 # Debug: Show available tables
-with st.expander("🔧 Available Tables & Schemas"):
+with st.expander("Available Tables & Schemas"):
     tables_df = get_available_tables()
     if tables_df is not None:
         st.dataframe(tables_df, use_container_width=True)
@@ -48,7 +48,7 @@ with st.expander("🔧 Available Tables & Schemas"):
         st.warning("Could not fetch table information")
 
 st.markdown("---")
-st.header("1️⃣ Revenue vs Quantity by Product Category")
+st.header(" Revenue vs Quantity by Product Category")
 
 query1 = """
 SELECT p.product_type,
@@ -95,7 +95,7 @@ try:
         st.plotly_chart(fig_quantity, use_container_width=True)
     
     # Data table
-    st.subheader("📋 Detailed View")
+    st.subheader("Detailed View")
     df_revenue_display = df_revenue.copy()
     df_revenue_display["total_revenue"] = df_revenue_display["total_revenue"].apply(lambda x: f"${x:,.2f}")
     df_revenue_display["total_quantity"] = df_revenue_display["total_quantity"].apply(lambda x: f"{int(x):,}")
@@ -111,12 +111,12 @@ try:
         st.metric("Number of Categories", len(df_revenue))
         
 except Exception as e:
-    st.error(f"❌ Error executing Query 1: {e}")
+    st.error(f" Error executing Query 1: {e}")
 
 st.markdown("---")
 
 # Query 2: Sales Trending Over Time
-st.header("2️⃣ Sales Trending Over Time")
+st.header("Sales Trending Over Time")
 
 query2 = """
 SELECT d.calendar_year,
@@ -207,7 +207,7 @@ try:
     st.dataframe(df_trends_display, use_container_width=True)
     
 except Exception as e:
-    st.error(f"❌ Error executing Query 2: {e}")
+    st.error(f" Error executing Query 2: {e}")
 
 st.markdown("---")
 

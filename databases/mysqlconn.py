@@ -4,7 +4,7 @@ import configparser
 import pandas as pd
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
-
+from resources.encrypt_decrypt import decrypt
 class MySqlConnection:
     _instance = None  # Singleton instance
 
@@ -28,7 +28,7 @@ class MySqlConnection:
                 host=self.config["mysql"]["host"],
                 port=int(self.config["mysql"]["port"]),
                 user=self.config["mysql"]["user"],
-                password=self.config["mysql"]["password"],
+                password=decrypt(self.config["mysql"]["password"]),
                 database=self.config["mysql"]["database"]
             )
             logger.info("MySQL Connection successful")

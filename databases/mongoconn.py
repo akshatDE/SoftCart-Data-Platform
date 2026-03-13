@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from urllib.parse import quote_plus
 from loguru import logger
-
+from resources.encrypt_decrypt import decrypt
 class MongoConnection:
     _instance = None 
 
@@ -20,7 +20,7 @@ class MongoConnection:
     def connect_mongo(self):
         try:
             mongo = self.config["mongodb"]
-            password = quote_plus(mongo["password"])
+            password = quote_plus(decrypt(mongo["password"]))
             uri = (
                 f"mongodb://{mongo['user']}:{password}"
                 f"@{mongo['host']}:{mongo['port']}"
