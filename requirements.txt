@@ -5,5 +5,8 @@ pydantic
 pandas
 pymongo
 psycopg2-binary
+pycryptodome
+pycryptodomex
+
 
 
