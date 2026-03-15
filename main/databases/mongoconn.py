@@ -1,7 +1,8 @@
 from pymongo import MongoClient
 from urllib.parse import quote_plus
-from loguru import logger
-from resources.encrypt_decrypt import decrypt
+from utility.custom_logger import logger
+from main.utility.encrypt_decrypt import decrypt
+
 class MongoConnection:
     _instance = None 
 

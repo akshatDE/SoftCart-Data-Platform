@@ -1,4 +1,4 @@
-from loguru import logger
+from utility.custom_logger import logger
 import random
 import pandas as pd 
 

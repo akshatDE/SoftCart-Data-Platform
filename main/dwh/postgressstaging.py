@@ -3,13 +3,15 @@ from databases.mysqlconn import MySqlConnection
 from databases.mongoconn import MongoConnection
 from urllib.parse import quote_plus
 from configparser import ConfigParser
-from loguru import logger
+from utility.custom_logger import logger
 import pandas as pd 
+import os
+
 
 
 config = ConfigParser()
-path = "/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCart-Data-Platform/resources/config_file.ini"
-config.read(path)
+config_path = os.getenv('config_path')
+config.read(config_path)
 
 
 # Connect to MySQL

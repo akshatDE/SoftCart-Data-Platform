@@ -1,6 +1,6 @@
 from faker import Faker
 import random
-from loguru import logger
+from utility.custom_logger import logger
 
 faker = Faker()
 def generate_customers():

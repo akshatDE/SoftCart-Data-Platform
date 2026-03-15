@@ -1,10 +1,10 @@
 import psycopg2
 import psycopg2.extras
-from loguru import logger
+from utility.custom_logger import logger
 import json
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
-from resources.encrypt_decrypt import decrypt
+from main.utility.encrypt_decrypt import decrypt
 
 class PostgreSQLConnection:
     """

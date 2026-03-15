@@ -1,10 +1,11 @@
 import mysql.connector
-from loguru import logger
+from utility.custom_logger import logger
 import configparser
 import pandas as pd
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
-from resources.encrypt_decrypt import decrypt
+from main.utility.encrypt_decrypt import decrypt
+
 class MySqlConnection:
     _instance = None  # Singleton instance
 

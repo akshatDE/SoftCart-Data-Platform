@@ -2,7 +2,7 @@ from datasource.GenerateCatalog import generate_catalog_data
 from datasource.GenerateProducts import generate_products,product_config
 from datasource.GenerateCustomers import generate_customers
 import pandas as pd 
-from loguru import logger
+from utility.custom_logger import logger
 import random
 from faker import Faker
 
