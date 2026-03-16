@@ -1,0 +1,161 @@
+2026-03-15 17:23:46.358 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 17:23:47.595 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 17:23:47.597 | INFO     | __main__:<module>:24 - Catalog data generated with 141 records.
+2026-03-15 17:23:48.390 | INFO     | __main__:<module>:28 - transactional data generated with 100000 records
+2026-03-15 17:23:48.461 | INFO     | __main__:<module>:32 - Customer data generated with 1000 records.
+2026-03-15 17:23:48.465 | INFO     | __main__:<module>:41 - Got some exception Cannot save file into a non-existent directory: '/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/data'
+2026-03-15 17:24:11.657 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 17:24:13.055 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 17:24:13.060 | INFO     | __main__:<module>:24 - Catalog data generated with 141 records.
+2026-03-15 17:24:14.863 | INFO     | __main__:<module>:28 - transactional data generated with 100000 records
+2026-03-15 17:24:14.938 | INFO     | __main__:<module>:32 - Customer data generated with 1000 records.
+2026-03-15 17:37:25.369 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 17:37:27.105 | INFO     | __main__:<module>:30 - Starting the ETL pipeline...
+2026-03-15 17:37:27.106 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 17:37:27.106 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-15 17:37:27.872 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-15 17:37:27.937 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-15 17:37:28.075 | ERROR    | __main__:run_mysql_bash_script:12 - MySQL script failed with error: bash: src/databases/mysql_script.sh: No such file or directory
+
+2026-03-15 17:37:28.079 | ERROR    | __main__:run_postgres_bash_script:23 - PostgreSQL script failed with error: bash: src/databases/postgres_script.sh: No such file or directory
+
+2026-03-15 17:38:10.034 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 17:38:11.260 | INFO     | __main__:<module>:30 - Starting the ETL pipeline...
+2026-03-15 17:38:11.260 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 17:38:11.262 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-15 17:38:12.024 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-15 17:38:12.090 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-15 17:38:12.226 | ERROR    | __main__:run_mysql_bash_script:12 - MySQL script failed with error: bash: /Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/scripts/mysql_script.sh: No such file or directory
+
+2026-03-15 17:38:12.230 | ERROR    | __main__:run_postgres_bash_script:23 - PostgreSQL script failed with error: bash: /Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/scripts/postgres_script.sh: No such file or directory
+
+2026-03-15 17:39:04.423 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 17:39:05.678 | INFO     | __main__:<module>:30 - Starting the ETL pipeline...
+2026-03-15 17:39:05.678 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 17:39:05.680 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-15 17:39:07.231 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-15 17:39:07.296 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-15 17:39:07.653 | ERROR    | __main__:run_mysql_bash_script:12 - MySQL script failed with error: mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+2026-03-15 17:39:17.130 | ERROR    | __main__:run_mongo_bash_script:23 - MongoDB script failed with error: MongoServerError: Authentication failed.
+2026-03-15T17:39:17.126-0400	error connecting to host: failed to connect to mongodb://softcart_user:XT9ytxs6%!B(MISSING)HhGKBk4TcYWTA%!D(MISSING)%!D(MISSING)@localhost:27018/catalog_db?authSource=admin: connection() error occurred during connection handshake: auth error: unable to authenticate using mechanism "SCRAM-SHA-256": (AuthenticationFailed) Authentication failed.
+
+2026-03-15 17:41:26.476 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 17:41:27.093 | INFO     | __main__:<module>:30 - Starting the ETL pipeline...
+2026-03-15 17:41:27.093 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 17:41:27.093 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-15 17:41:27.871 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-15 17:41:27.936 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-15 17:41:28.289 | ERROR    | __main__:run_mysql_bash_script:12 - MySQL script failed with error: mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+2026-03-15 17:41:29.239 | ERROR    | __main__:run_mongo_bash_script:23 - MongoDB script failed with error: MongoServerError: Authentication failed.
+2026-03-15T17:41:29.234-0400	error connecting to host: failed to connect to mongodb://softcart_user:XT9ytxs6%!B(MISSING)HhGKBk4TcYWTA%!D(MISSING)%!D(MISSING)@localhost:27018/catalog_db?authSource=admin: connection() error occurred during connection handshake: auth error: unable to authenticate using mechanism "SCRAM-SHA-256": (AuthenticationFailed) Authentication failed.
+
+2026-03-15 18:14:04.055 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:14:04.684 | ERROR    | src.databases.mysqlconn:connect:39 - Database connection error: 'mysql'
+2026-03-15 18:17:12.634 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:17:13.334 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:24:07.830 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:24:08.402 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:24:08.403 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:24:08.419 | INFO     | __main__:<module>:34 - Got some error while loading data to mysql customer table 1290 (HY000): The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+2026-03-15 18:24:48.404 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:24:48.963 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:24:48.963 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:24:48.964 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 1229 (HY000): Variable 'local_infile' is a GLOBAL variable and should be set with SET GLOBAL
+2026-03-15 18:25:27.526 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:25:28.108 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:25:28.108 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:25:28.113 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 1227 (42000): Access denied; you need (at least one of) the SUPER or SYSTEM_VARIABLES_ADMIN privilege(s) for this operation
+2026-03-15 18:52:21.765 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:52:22.612 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:52:22.612 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:52:22.613 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 1227 (42000): Access denied; you need (at least one of) the SUPER or SYSTEM_VARIABLES_ADMIN privilege(s) for this operation
+2026-03-15 18:52:47.580 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:52:48.195 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:52:48.195 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:52:48.196 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 1290 (HY000): The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+2026-03-15 18:53:12.715 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:53:13.271 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:53:13.271 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:53:13.272 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 1229 (HY000): Variable 'local_infile' is a GLOBAL variable and should be set with SET GLOBAL
+2026-03-15 18:55:29.643 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:55:30.104 | ERROR    | src.databases.mysqlconn:connect:39 - Database connection error: 'root'
+2026-03-15 18:55:30.104 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 'root'
+2026-03-15 18:56:51.330 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:56:51.791 | ERROR    | src.databases.mysqlconn:connect:39 - Database connection error: 'root'
+2026-03-15 18:56:51.792 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 'root'
+2026-03-15 18:57:28.536 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:57:29.206 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:57:29.207 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:57:29.209 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 1229 (HY000): Variable 'local_infile' is a GLOBAL variable and should be set with SET GLOBAL
+2026-03-15 18:58:05.020 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 18:58:05.414 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 18:58:05.414 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 18:58:05.416 | INFO     | __main__:<module>:35 - Got some error while loading data to mysql customer table 1290 (HY000): The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+2026-03-15 19:04:57.695 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 19:04:58.176 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 19:04:58.176 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 19:04:58.186 | INFO     | src.databases.mysqlconn:close:56 - MySQL Connection closed
+2026-03-15 19:06:50.576 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 19:06:51.037 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 19:06:51.037 | INFO     | __main__:<module>:16 - Connected to mysql ready for data loading.....
+2026-03-15 19:06:51.055 | INFO     | src.databases.mysqlconn:close:56 - MySQL Connection closed
+2026-03-15 20:11:52.934 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:12:09.885 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:12:10.393 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 20:12:10.393 | INFO     | __main__:load_mysql:17 - Connected to mysql ready for data loading.....
+2026-03-15 20:12:10.403 | INFO     | __main__:load_mysql:33 - Got some error while loading data to mysql 2 (HY000): File '/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/data/sales_data.csv' not found (OS errno 2 - No such file or directory)
+2026-03-15 20:12:32.571 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:12:33.066 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 20:12:33.066 | INFO     | __main__:load_mysql:17 - Connected to mysql ready for data loading.....
+2026-03-15 20:12:33.326 | INFO     | __main__:load_mysql:22 - Sales data loaded to mysql.....
+2026-03-15 20:12:33.333 | INFO     | __main__:load_mysql:25 - Customer data loaded to mysql.....
+2026-03-15 20:12:33.334 | INFO     | __main__:load_mysql:27 - Data loading to mysql completed.....
+2026-03-15 20:15:22.863 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:15:22.920 | INFO     | src.databases.mongoconn:connect_mongo:35 - MongoDB Connection successful
+2026-03-15 20:15:22.928 | INFO     | __main__:load_mongo:19 - Data loaded to mongo.....
+2026-03-15 20:17:58.995 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:18:06.536 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:18:06.750 | INFO     | src.databases.mongoconn:connect_mongo:35 - MongoDB Connection successful
+2026-03-15 20:18:06.753 | INFO     | __main__:load_mongo:18 - Collection already exists, dropping existing collection and creating new collection.....
+2026-03-15 20:18:06.785 | INFO     | __main__:load_mongo:23 - Data loaded to mongo.....
+2026-03-15 20:31:05.147 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:31:05.895 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 20:31:05.897 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-15 20:31:06.667 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-15 20:31:06.733 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-15 20:31:06.875 | INFO     | __main__:<module>:12 - Pipeline executed successfully data saved in data directory.
+2026-03-15 20:31:06.875 | INFO     | __main__:<module>:29 - Got some exception 'module' object is not callable
+2026-03-15 20:34:26.283 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:34:27.062 | INFO     | __main__:<module>:29 - Got some exception 'module' object is not callable
+2026-03-15 20:36:03.775 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:36:04.539 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-15 20:36:04.542 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-15 20:36:05.338 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-15 20:36:05.421 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-15 20:36:05.566 | INFO     | __main__:<module>:12 - Pipeline executed successfully data saved in data directory.
+2026-03-15 20:36:05.611 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 20:36:05.611 | INFO     | src.loaddata.load_mysql:load_mysql:17 - Connected to mysql ready for data loading.....
+2026-03-15 20:36:05.886 | INFO     | src.loaddata.load_mysql:load_mysql:22 - Sales data loaded to mysql.....
+2026-03-15 20:36:05.890 | INFO     | src.loaddata.load_mysql:load_mysql:25 - Customer data loaded to mysql.....
+2026-03-15 20:36:05.890 | INFO     | src.loaddata.load_mysql:load_mysql:27 - Data loading to mysql completed.....
+2026-03-15 20:36:05.918 | INFO     | src.databases.mongoconn:connect_mongo:35 - MongoDB Connection successful
+2026-03-15 20:36:05.919 | INFO     | src.loaddata.load_mongo:load_mongo:18 - Collection already exists, dropping existing collection and creating new collection.....
+2026-03-15 20:36:05.939 | INFO     | src.loaddata.load_mongo:load_mongo:23 - Data loaded to mongo.....
+2026-03-15 20:36:05.939 | INFO     | src.dwh.postgressstaging:get_mysql:25 - Got some error Use get_instance() instead of creating a new object.
+2026-03-15 20:36:05.939 | INFO     | __main__:<module>:29 - Got some exception cannot unpack non-iterable NoneType object
+2026-03-15 20:39:08.657 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:39:09.417 | INFO     | __main__:<module>:12 - Pipeline executed successfully data saved in data directory.
+2026-03-15 20:39:09.467 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 20:39:09.478 | INFO     | src.databases.mysqlconn:get_engine:46 - Connection successful Engine(mysql+mysqlconnector://softcart_user:***@localhost:3307/softcart_sales)
+2026-03-15 20:39:09.495 | INFO     | src.dwh.postgressstaging:get_mysql:25 - Got some error (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'softcart_user'@'192.168.65.1' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-15 20:40:49.550 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-15 20:40:50.952 | INFO     | __main__:<module>:12 - Pipeline executed successfully data saved in data directory.
+2026-03-15 20:40:51.042 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-15 20:40:51.057 | INFO     | src.databases.mysqlconn:get_engine:46 - Connection successful Engine(mysql+mysqlconnector://softcart_user:***@@localhost:3307/softcart_sales)
+2026-03-15 20:40:51.139 | INFO     | src.dwh.postgressstaging:get_mysql:25 - Got some error (mysql.connector.errors.DatabaseError) 2005 (HY000): Unknown MySQL server host '@localhost' (8)
+(Background on this error at: https://sqlalche.me/e/20/4xp6)
