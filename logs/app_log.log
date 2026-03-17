@@ -159,3 +159,32 @@ ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y
 2026-03-15 20:40:51.057 | INFO     | src.databases.mysqlconn:get_engine:46 - Connection successful Engine(mysql+mysqlconnector://softcart_user:***@@localhost:3307/softcart_sales)
 2026-03-15 20:40:51.139 | INFO     | src.dwh.postgressstaging:get_mysql:25 - Got some error (mysql.connector.errors.DatabaseError) 2005 (HY000): Unknown MySQL server host '@localhost' (8)
 (Background on this error at: https://sqlalche.me/e/20/4xp6)
+2026-03-16 21:06:35.422 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-16 21:06:36.565 | INFO     | __main__:<module>:12 - Pipeline executed successfully data saved in data directory.
+2026-03-16 21:07:26.561 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-16 21:07:39.320 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-16 21:07:39.723 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-16 21:07:39.727 | INFO     | __main__:pipeline:24 - Catalog data generated with 141 records.
+2026-03-16 21:07:40.559 | INFO     | __main__:pipeline:28 - transactional data generated with 100000 records
+2026-03-16 21:07:40.626 | INFO     | __main__:pipeline:32 - Customer data generated with 1000 records.
+2026-03-16 21:26:20.314 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-16 21:26:21.201 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-16 21:26:21.203 | INFO     | __main__:pipeline:24 - Catalog data generated with 141 records.
+2026-03-16 21:26:22.055 | INFO     | __main__:pipeline:28 - transactional data generated with 100000 records
+2026-03-16 21:26:22.123 | INFO     | __main__:pipeline:32 - Customer data generated with 1000 records.
+2026-03-16 21:27:53.433 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-16 21:27:54.095 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-16 21:27:54.097 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-16 21:27:55.023 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-16 21:27:55.094 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-16 21:27:55.327 | INFO     | src.datasource.GenerateCatalog:generate_catalog_data:26 - Succesfully genrate products catalog with 141 products.
+2026-03-16 21:27:55.327 | INFO     | src.pipeline:pipeline:24 - Catalog data generated with 141 records.
+2026-03-16 21:27:56.200 | INFO     | src.pipeline:pipeline:28 - transactional data generated with 100000 records
+2026-03-16 21:27:56.265 | INFO     | src.pipeline:pipeline:32 - Customer data generated with 1000 records.
+2026-03-16 21:27:56.457 | INFO     | __main__:<module>:12 - Pipeline executed successfully data saved in data directory.
+2026-03-16 21:27:56.500 | INFO     | src.databases.mysqlconn:connect:37 - MySQL Connection successful
+2026-03-16 21:27:56.501 | INFO     | src.loaddata.load_mysql:load_mysql:17 - Connected to mysql ready for data loading.....
+2026-03-16 21:27:56.859 | INFO     | src.loaddata.load_mysql:load_mysql:22 - Sales data loaded to mysql.....
+2026-03-16 21:27:56.862 | INFO     | src.loaddata.load_mysql:load_mysql:25 - Customer data loaded to mysql.....
+2026-03-16 21:27:56.862 | INFO     | src.loaddata.load_mysql:load_mysql:27 - Data loading to mysql completed.....
+2026-03-16 21:27:56.868 | INFO     | src.dwh.postgressstaging:get_mysql:26 - Got some error Use get_instance() instead of creating a new object.

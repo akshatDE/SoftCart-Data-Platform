@@ -8,11 +8,11 @@ import pandas as pd
 # Execute the pipeline
 if __name__ == "__main__":
     try:
-        #pipeline()
+        pipeline()
         logger.info("Pipeline executed successfully data saved in data directory.")
 
         # Load data to MySQL and MongoDB
-        #load_mysql()
+        load_mysql()
         #load_mongo()
         
         # Load data from MySQL and MongoDB

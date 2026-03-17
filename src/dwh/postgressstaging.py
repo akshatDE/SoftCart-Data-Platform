@@ -19,18 +19,20 @@ def get_mysql():
         mysql_conn = MySqlConnection(config=config)
         mysql_eng = mysql_conn.get_engine()
         sales_df = pd.read_sql("SELECT * FROM sales_data",mysql_eng)
+        customer_df = pd.read_sql("SELECT * FROM customers",mysql_eng)
         logger.info(f"DF loaded with {len(sales_df)}")
-        return sales_df
+        return sales_df, customer_df
     except Exception as e:
         logger.info(f"Got some error {e}")
 # Connect to postgres
-def load_mysql_postgres(sales_df):
+def load_mysql_postgres(sales_df, customer_df):
     try:
 
         postgres_conn = PostgreSQLConnection(config=config)
         postgres_eng = postgres_conn.get_engine()
         sales_df.to_sql("sales_data",postgres_eng,schema="staging",if_exists="replace",index=False)
-        logger.info("Sales data loaded....")
+        customer_df.to_sql("customers",postgres_eng,schema="staging",if_exists="replace",index=False)
+        logger.info("Sales and customer data loaded....")
 
     except Exception as e:
         logger.info(f"Got some error{e}")
@@ -50,6 +52,7 @@ def load_mongo_postgres(catalog_df):
         postgres_conn = PostgreSQLConnection(config=config)
         postgres_eng = postgres_conn.get_engine()
         catalog_df.to_sql("catalog",postgres_eng,schema="staging",if_exists="replace",index=False)
+        logger.info("Catalog data loaded....")
     except Exception as e:
         logger.info(f"Got some error....{e}")
 

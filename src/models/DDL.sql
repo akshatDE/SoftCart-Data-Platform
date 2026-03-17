@@ -1,10 +1,13 @@
 -- DDL For MYSQL
 CREATE TABLE sales_data (
-  product_id   INT NOT NULL,
-  customer_id  INT NOT NULL,
-  quantity     INT NOT NULL,
-  price        DECIMAL(10,2) NOT NULL,
-  time_stamp  DATETIME NOT NULL
+    product_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL,
+    time_stamp DATETIME NOT NULL,
+    channel VARCHAR(20) NOT NULL,
+    promo_code VARCHAR(20) NOT NULL,
+    discount_percent DECIMAL(5,2) NOT NULL
 );
 -- Indexing for faster queries output , to avoid full table scan
 CREATE INDEX idx_sales_ts
@@ -53,7 +56,11 @@ CREATE TABLE IF NOT EXISTS staging.sales_data (
     customer_id INT NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     quantity INT NOT NULL,
-    time_stamp TIMESTAMP NOT NULL);
+    time_stamp TIMESTAMP NOT NULL,
+    channel VARCHAR(20) NOT NULL,
+    promo_code VARCHAR(20) NOT NULL,
+    discount_percent DECIMAL(5,2) NOT NULL
+);
 
 
 -- DDL for analytics layer (Postgres)
@@ -82,11 +89,25 @@ CREATE TABLE IF NOT EXISTS analytics.dim_date (
     weekday_indicator VARCHAR(10) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS analytics.dim_channel (
+    channel_id SERIAL PRIMARY KEY,
+    channel_name VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS analytics.dim_promotion (
+    promo_id SERIAL PRIMARY KEY,
+    promo_code VARCHAR(20) NOT NULL,
+    discount_percent DECIMAL(5,2) NOT NULL
+);
+
+
 CREATE TABLE IF NOT EXISTS analytics.fact_sales (
     sales_id BIGSERIAL PRIMARY KEY,
     product_id INT NOT NULL REFERENCES analytics.dim_product(product_id),
     customer_id INT NOT NULL REFERENCES analytics.dim_customer(customer_id),
     date_id INT NOT NULL REFERENCES analytics.dim_date(date_id),
+    channel_id INT NOT NULL REFERENCES analytics.dim_channel(channel_id),
+    promo_id INT NOT NULL REFERENCES analytics.dim_promotion(promo_id),
     product_quantity INT NOT NULL,
     product_price DECIMAL(10,2) NOT NULL
 );
@@ -110,13 +131,16 @@ SELECT DISTINCT
     CASE WHEN EXTRACT(DOW FROM time_stamp) IN (0, 6) THEN 'Weekend' ELSE 'Weekday' END AS weekday_indicator
 FROM staging.sales_data;
 
-INSERT INTO analytics.fact_sales (product_id, customer_id, date_id, product_quantity, product_price)
+INSERT INTO analytics.fact_sales (product_id, customer_id, date_id, product_quantity, product_price, promo_code, discount_percent)
 SELECT
     product_id,
     customer_id,
     EXTRACT(YEAR FROM time_stamp) * 10000 + EXTRACT(MONTH FROM time_stamp) * 100 + EXTRACT(DAY FROM time_stamp) AS date_id,
     quantity AS product_quantity,
-    price AS product_price
+    price AS product_price,
+    promo_code,
+    discount_percent
+
 FROM staging.sales_data;
 
 

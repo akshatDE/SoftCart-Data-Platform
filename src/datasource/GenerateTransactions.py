@@ -7,29 +7,39 @@ from faker import Faker
 
 faker = Faker()
 
-def generate_transactions(catalog,n):
-    try: 
-
+def generate_transactions(catalog, n):
+    try:
         sales_data = []
+        channels = ["Online", "In-Store", "Mobile App"]
+        promotions = [
+            {"promo_code": "None", "discount_percent": 0},
+            {"promo_code": "None", "discount_percent": 0},
+            {"promo_code": "None", "discount_percent": 0},
+            {"promo_code": "Holiday Sale", "discount_percent": 10},
+            {"promo_code": "Black Friday", "discount_percent": 20},
+            {"promo_code": "Cyber Monday", "discount_percent": 15},
+        ]
+
         for _ in range(n):
-
             prod = random.choice(catalog)
-            prod_id = prod['product_id']
+            promo = random.choice(promotions)
             prod_price = float(prod['product_price'])
-            customer_id = random.randint(1,1000)
-            quantity = random.randint(1,20)
-            timestp = faker.date_time_between(start_date="-2y", end_date="now")
+            discounted_price = round(prod_price * (1 - promo["discount_percent"] / 100), 2)
 
-            sales_dict ={
-                 "product_id":prod_id,
-                "customer_id":customer_id,
-                "quantity":quantity,
-                "price":prod_price,
-                "time_stamp":timestp
+            sales_dict = {
+                "product_id": prod['product_id'],
+                "customer_id": random.randint(1, 1000),
+                "quantity": random.randint(1, 20),
+                "price": discounted_price,
+                "time_stamp": faker.date_time_between(start_date="-2y", end_date="now"),
+                "channel": random.choice(channels),
+                "promo_code": promo["promo_code"],
+                "discount_percent": promo["discount_percent"]
             }
             sales_data.append(sales_dict)
         return sales_data
-    
+
     except Exception as e:
-         logger.info(f"Got some error {e}")
+        logger.info(f"Got some error {e}")
+    
      
