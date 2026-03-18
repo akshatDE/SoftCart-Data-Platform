@@ -41,7 +41,7 @@ class MySqlConnection:
         
     def get_engine(self):
         try:
-            pswd = decrypt(self.config["mysql"]["password"]) 
+            pswd = quote_plus(decrypt(self.config["mysql"]["password"]))
             engine = create_engine(f"mysql+mysqlconnector://{self.config["mysql"]["user"]}:{pswd}@{self.config["mysql"]["host"]}:{self.config["mysql"]["port"]}/{self.config["mysql"]["database"]}")
             logger.info(f"Connection successful {engine}")
             return engine

@@ -13,17 +13,21 @@ if __name__ == "__main__":
 
         # Load data to MySQL and MongoDB
         load_mysql()
-        #load_mongo()
+        load_mongo()
         
         # Load data from MySQL and MongoDB
-        get_mysql()
-        #catalog_df = get_mongo()
+        sales_df, customer_df = get_mysql()
+        catalog_df = get_mongo()
+
+        print(sales_df.head())
+        print(customer_df.head())
+        print(catalog_df.head())
 
         # Load data to Postgres staging
-        #load_mysql_postgres(sales_df, customer_df)
-        #load_mongo_postgres(catalog_df)
+        load_mysql_postgres(sales_df, customer_df)
+        load_mongo_postgres(catalog_df)
 
-        #logger.info("Data loaded From MySQL, MongoDB to Postgres staging successfully.")
+        logger.info("Data loaded From MySQL, MongoDB to Postgres staging successfully.")
 
     except Exception as e:
         logger.info(f"Got some exception {e}")

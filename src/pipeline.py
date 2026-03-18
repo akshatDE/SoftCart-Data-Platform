@@ -40,5 +40,5 @@ def pipeline():
     except Exception as e:
             logger.info(f"Got some exception {e}")
 
-pipeline()
+
 

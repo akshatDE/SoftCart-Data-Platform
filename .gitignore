@@ -15,3 +15,6 @@ SoftCartCapstone/resources/config_file.ini
 # OS
 .DS_Store
 
+# testing dir
+testing/
+

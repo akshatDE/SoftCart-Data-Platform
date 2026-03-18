@@ -4,7 +4,6 @@ from Cryptodome.Cipher import AES
 from Cryptodome.Protocol.KDF import PBKDF2
 import os, sys
 from loguru import logger
-
 #load env 
 load_dotenv()
 
@@ -16,7 +15,7 @@ try:
     if not (key and iv and salt):
         raise Exception(F"Error while fetching details for key/iv/salt")
 except Exception as e:
-    logger.error("Error occurred. Details: %s", e)
+    logger.error(f"Error occurred. Details: {e}")
     sys.exit(0)
 
 BS = 16
@@ -39,7 +38,6 @@ def encrypt(raw):
 def decrypt(enc):
     cipher = AES.new(get_private_key(), AES.MODE_CBC, iv.encode('utf-8'))
     return unpad(cipher.decrypt(base64.b64decode(enc))).decode('utf8')
-
 
 
 

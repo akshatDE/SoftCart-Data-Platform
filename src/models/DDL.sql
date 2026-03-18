@@ -2,8 +2,8 @@
 CREATE TABLE sales_data (
     product_id INT NOT NULL,
     customer_id INT NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
     quantity INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
     time_stamp DATETIME NOT NULL,
     channel VARCHAR(20) NOT NULL,
     promo_code VARCHAR(20) NOT NULL,
@@ -54,8 +54,8 @@ CREATE TABLE IF NOT EXISTS staging.sales_data (
     -- Source columns (MySQL schema replica)
     product_id INT NOT NULL,
     customer_id INT NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
     quantity INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
     time_stamp TIMESTAMP NOT NULL,
     channel VARCHAR(20) NOT NULL,
     promo_code VARCHAR(20) NOT NULL,

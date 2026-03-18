@@ -85,8 +85,12 @@ class PostgreSQLConnection:
             raise e
     def get_engine(self):
         try:
-            pswd = quote_plus(self.config["postgresql"]["password"])
-            engine = create_engine(f"postgresql+psycopg2://{self.config["postgresql"]["user"]}:{pswd}@{self.config["postgresql"]["host"]}:{self.config["postgresql"]["port"]}/{self.config["postgresql"]["database"]}")
+            pswd = quote_plus(decrypt(self.config["postgresql"]["password"]))
+            engine = create_engine(
+                f"postgresql+psycopg2://{self.config['postgresql']['user']}:{pswd}"
+                f"@127.0.0.1:{self.config['postgresql']['port']}"
+                f"/{self.config['postgresql']['database']}"
+            )
             logger.info(f"Postgres engine created {engine}")
             return engine
         except Exception as e:
