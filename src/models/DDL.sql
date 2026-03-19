@@ -121,6 +121,12 @@ INSERT INTO analytics.dim_customer (customer_id, first_name, last_name, email, s
 SELECT DISTINCT customer_id, first_name, last_name, email, segment
 FROM staging.customers;
 
+INSERT INTO analytics.dim_channel (channel_name)
+SELECT DISTINCT channel
+FROM staging.sales_data;
+
+
+
 INSERT INTO analytics.dim_date (date_id, date, day_of_week, calendar_month, calendar_year, weekday_indicator)
 SELECT DISTINCT
     EXTRACT(YEAR FROM time_stamp) * 10000 + EXTRACT(MONTH FROM time_stamp) * 100 + EXTRACT(DAY FROM time_stamp) AS date_id,
@@ -131,17 +137,25 @@ SELECT DISTINCT
     CASE WHEN EXTRACT(DOW FROM time_stamp) IN (0, 6) THEN 'Weekend' ELSE 'Weekday' END AS weekday_indicator
 FROM staging.sales_data;
 
-INSERT INTO analytics.fact_sales (product_id, customer_id, date_id, product_quantity, product_price, promo_code, discount_percent)
-SELECT
-    product_id,
-    customer_id,
-    EXTRACT(YEAR FROM time_stamp) * 10000 + EXTRACT(MONTH FROM time_stamp) * 100 + EXTRACT(DAY FROM time_stamp) AS date_id,
-    quantity AS product_quantity,
-    price AS product_price,
-    promo_code,
-    discount_percent
 
-FROM staging.sales_data;
+- Inserting data to fact_sales
+INSERT INTO analytics.fact_sales
+    (product_id, customer_id, date_id, channel_id, promo_id, product_quantity, product_price)
+SELECT
+    sd.product_id,
+    sd.customer_id,
+    CAST(EXTRACT(YEAR FROM sd.time_stamp) * 10000 + EXTRACT(MONTH FROM sd.time_stamp) * 100 + EXTRACT(DAY FROM sd.time_stamp) AS INT),
+    dc.channel_id,
+    dp.promo_id,
+    sd.quantity,
+    sd.price
+FROM staging.sales_data sd
+JOIN analytics.dim_channel dc
+    ON sd.channel = dc.channel_name
+JOIN analytics.dim_promotion dp
+    ON sd.promo_code = dp.promo_code
+    AND sd.discount_percent = dp.discount_percent;
+
 
 
 
