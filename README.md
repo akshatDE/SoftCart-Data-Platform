@@ -72,7 +72,7 @@ SoftCart-Data-Platform/
 ---
 
 ## Data Model
-![SoftCart_Data_Model](SoftCart_Data_Model.png)
+![data_model_softcart](data_model_softcart.png)
 
 ### Source Systems (OLTP)
 
@@ -89,19 +89,21 @@ SoftCart-Data-Platform/
 - `staging.customers` — raw replica of MySQL customers
 
 ### Analytics Layer (PostgreSQL — `analytics` schema)
-- `analytics.fact_sales` — transactional fact table
-- `analytics.dim_product` — product dimension
-- `analytics.dim_customer` — customer dimension with segments
-- `analytics.dim_date` — date dimension (day, month, quarter, year)
+- `analytics.fact_sales` — transactional fact table (quantity, price, FK to all dimensions)
+- `analytics.dim_product` — product dimension (model, type)
+- `analytics.dim_customer` — customer dimension (name, email, segment)
+- `analytics.dim_date` — date dimension (day, month, year, weekday indicator)
+- `analytics.dim_channel` — sales channel dimension (Online, In-Store, Mobile App)
+- `analytics.dim_promotion` — promotion dimension (promo code, discount percent)
 
 ---
 
 ## Business Questions
-
 1. Which product categories and individual products drive the most revenue vs quantity?
 2. How are sales trending over time — are certain categories growing or declining?
 3. What does customer purchasing behavior look like — repeat buyers vs one-time, spending tiers?
 4. What is the revenue concentration — do a small number of products/customers account for most sales?
+5. Which products sell best on which channel, and do promotions drive more volume or just discount revenue?
 
 ---
 
