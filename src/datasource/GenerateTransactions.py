@@ -29,7 +29,7 @@ def generate_transactions(catalog, n):
             sales_dict = {
                 "product_id": prod['product_id'],
                 "customer_id": random.randint(1, 1000),
-                "quantity": random.randint(1, 20),
+                "quantity": random.randint(1, 3),
                 "price": discounted_price,
                 "time_stamp": faker.date_time_between(start_date="-2y", end_date="now"),
                 "channel": random.choice(channels),
