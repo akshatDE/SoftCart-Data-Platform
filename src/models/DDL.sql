@@ -1,4 +1,6 @@
--- DDL For MYSQL
+-- DDL For MYSQL OLTP
+CREATE DATABASE IF NOT EXISTS softcart_sales;
+USE softcart_sales;
 CREATE TABLE sales_data (
     product_id INT NOT NULL,
     customer_id INT NOT NULL,
@@ -21,7 +23,7 @@ CREATE TABLE IF NOT EXISTS softcart_sales.customers (
     segment VARCHAR(20) NOT NULL
 );
 
---DDL FOR Postgres
+--DDL FOR Postgres DWH
 
 CREATE SCHEMA IF NOT EXISTS staging;
 
@@ -63,7 +65,7 @@ CREATE TABLE IF NOT EXISTS staging.sales_data (
 );
 
 
--- DDL for analytics layer (Postgres)
+-- DDL for analytics layer (Postgres DWH) with dimensional modeling (star schema)
 CREATE SCHEMA IF NOT EXISTS analytics;
 
 CREATE TABLE IF NOT EXISTS analytics.dim_product (

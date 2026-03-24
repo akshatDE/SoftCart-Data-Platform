@@ -10,6 +10,7 @@ services:
         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3307:3306"
+    command: --local-infile=1
     volumes:
       - mysql_data:/var/lib/mysql
     networks:

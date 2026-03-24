@@ -23,3 +23,5 @@ def load_mongo():
             logger.info("Data loaded to mongo.....")
     except Exception as e:
         logger.info(f"Got some error while loading data to mongo {e}")
+        raise e 
+    

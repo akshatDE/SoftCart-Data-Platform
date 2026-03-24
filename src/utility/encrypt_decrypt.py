@@ -41,6 +41,10 @@ def decrypt(enc):
 
 
 
+def main():
+    decrypted = decrypt("Ew1qK/78m6udrJmIdmidnA==")
+    print(decrypted)
 
 
-
+if __name__ == "__main__":
+    main()

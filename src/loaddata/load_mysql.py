@@ -18,9 +18,21 @@ def load_mysql():
         mysql_cur =mysql_con.connection.cursor()
         for file in data_path:
             if "sales_data" in file:
+                mysql_cur.execute("SELECT COUNT(*) FROM sales_data;")
+                count_before = mysql_cur.fetchone()[0]
+                logger.info(f"Existing data in sales_data table is {count_before} records.....")
+                if count_before > 0:
+                    mysql_cur.execute("TRUNCATE TABLE sales_data;")
+                    logger.info("Existing data in sales_data table truncated.....")
                 mysql_cur.execute(f"LOAD DATA LOCAL INFILE '{file}' INTO TABLE sales_data FIELDS TERMINATED BY ',' IGNORE 1 LINES;")
                 logger.info(f"Sales data loaded to mysql.....")
             elif "customers" in file:
+                mysql_cur.execute("SELECT COUNT(*) FROM customers;")
+                count_before = mysql_cur.fetchone()[0]
+                logger.info(f"Existing data in customers table is {count_before} records.....")
+                if count_before > 0:
+                    mysql_cur.execute("TRUNCATE TABLE customers;")
+                    logger.info("Existing data in customers table truncated.....")
                 mysql_cur.execute(f"LOAD DATA LOCAL INFILE '{file}' INTO TABLE customers FIELDS TERMINATED BY ',' IGNORE 1 LINES;")
                 logger.info(f"Customer data loaded to mysql.....")
 
@@ -30,5 +42,6 @@ def load_mysql():
         mysql_con.connection.close()
 
     except Exception as e:
-        logger.info(f"Got some error while loading data to mysql {e}")
+        logger.error(f"Got some error while loading data to mysql {e}")
+        raise e
 
