@@ -192,7 +192,7 @@ database:softcart_staging
 - [x] Bash scripts for bulk loading
 - [x] ETL: MySQL/MongoDB → PostgreSQL staging
 - [x] Dimensional modeling (star schema in analytics layer)
-- [ ] Streamlit / Tableau dashboards
+- [x] Streamlit / Tableau dashboards
 - [ ] CRON scheduling
 - [ ] Apache Airflow migration
 - [ ] Snowflake cloud DWH
