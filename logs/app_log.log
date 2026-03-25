@@ -196,3 +196,36 @@
 2026-03-23 19:34:13.592 | INFO     | src.databases.postgresconn:get_engine:94 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@127.0.0.1:5433/softcart_staging)
 2026-03-23 19:34:13.624 | INFO     | src.dwh.postgressstaging:load_mongo_postgres:56 - Catalog data loaded....
 2026-03-23 19:34:13.625 | INFO     | __main__:<module>:30 - Data loaded From MySQL, MongoDB to Postgres staging successfully.
+2026-03-25 19:19:29.348 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-25 19:19:30.811 | INFO     | src.databases.postgresconn:connect:82 - PostgreSQL Connection successful
+2026-03-25 19:19:30.840 | INFO     | src.databases.postgresconn:get_engine:94 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@127.0.0.1:5433/softcart_staging)
+2026-03-25 19:19:30.870 | INFO     | __main__:<module>:23 - Truncating tables...
+2026-03-25 19:21:30.707 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-25 19:21:31.525 | INFO     | src.databases.postgresconn:connect:82 - PostgreSQL Connection successful
+2026-03-25 19:21:31.545 | INFO     | src.databases.postgresconn:get_engine:94 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@127.0.0.1:5433/softcart_staging)
+2026-03-25 19:21:31.566 | INFO     | __main__:<module>:24 - Truncating tables...
+2026-03-25 19:23:08.870 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-25 19:23:09.591 | INFO     | src.databases.postgresconn:connect:82 - PostgreSQL Connection successful
+2026-03-25 19:23:09.610 | INFO     | src.databases.postgresconn:get_engine:94 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@127.0.0.1:5433/softcart_staging)
+2026-03-25 19:23:09.626 | INFO     | __main__:<module>:24 - Truncating tables...
+2026-03-25 19:24:07.423 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-25 19:24:08.490 | INFO     | src.databases.postgresconn:connect:82 - PostgreSQL Connection successful
+2026-03-25 19:24:08.511 | INFO     | src.databases.postgresconn:get_engine:94 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@127.0.0.1:5433/softcart_staging)
+2026-03-25 19:24:08.527 | INFO     | __main__:<module>:24 - Truncating tables...
+2026-03-25 19:24:08.554 | INFO     | __main__:<module>:31 - Tables truncated successfully
+2026-03-25 19:24:08.584 | INFO     | __main__:<module>:38 - Dim channel loaded successfully
+2026-03-25 19:24:08.588 | INFO     | __main__:<module>:45 - Dim customer loaded successfully
+2026-03-25 19:24:08.859 | INFO     | __main__:<module>:58 - Dim date loaded successfully
+2026-03-25 19:24:08.864 | INFO     | __main__:<module>:65 - Dim product loaded successfully
+2026-03-25 19:24:08.901 | INFO     | __main__:<module>:85 - Fact sales loaded successfully
+2026-03-25 19:30:15.209 | INFO     | src.utility.custom_logger:<module>:33 - Logger initialized
+2026-03-25 19:30:15.935 | INFO     | src.databases.postgresconn:connect:82 - PostgreSQL Connection successful
+2026-03-25 19:30:15.955 | INFO     | src.databases.postgresconn:get_engine:94 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@127.0.0.1:5433/softcart_staging)
+2026-03-25 19:30:15.971 | INFO     | __main__:<module>:24 - Truncating tables...
+2026-03-25 19:30:15.993 | INFO     | __main__:<module>:31 - Tables truncated successfully
+2026-03-25 19:30:16.010 | INFO     | __main__:<module>:38 - Dim channel loaded successfully
+2026-03-25 19:30:16.012 | INFO     | __main__:<module>:45 - Dim customer loaded successfully
+2026-03-25 19:30:16.183 | INFO     | __main__:<module>:58 - Dim date loaded successfully
+2026-03-25 19:30:16.195 | INFO     | __main__:<module>:65 - Dim promotion loaded successfully
+2026-03-25 19:30:16.197 | INFO     | __main__:<module>:72 - Dim product loaded successfully
+2026-03-25 19:30:17.547 | INFO     | __main__:<module>:92 - Fact sales loaded successfully

@@ -140,7 +140,7 @@ SELECT DISTINCT
 FROM staging.sales_data;
 
 
-- Inserting data to fact_sales
+-- Inserting data to fact_sales
 INSERT INTO analytics.fact_sales
     (product_id, customer_id, date_id, channel_id, promo_id, product_quantity, product_price)
 SELECT
