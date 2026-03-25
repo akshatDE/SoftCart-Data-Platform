@@ -193,7 +193,7 @@ database:softcart_staging
 - [x] ETL: MySQL/MongoDB → PostgreSQL staging
 - [x] Dimensional modeling (star schema in analytics layer)
 - [x] Streamlit / Tableau dashboards
-- [ ] CRON scheduling
+- [x] CRON scheduling
 - [ ] Apache Airflow migration
 - [ ] Snowflake cloud DWH
 - [ ] FastAPI serving layer
