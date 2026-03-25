@@ -1,12 +1,23 @@
-faker 
-loguru
-mysql-connector-python
-pydantic
-pandas
-pymongo
-psycopg2-binary
-pycryptodome
-pycryptodomex
+# Core data
+pandas>=2.0,<3.0
+pyarrow>=14.0,<16.0
 
+# Database connectors
+psycopg2-binary>=2.9.9
+mysql-connector-python>=8.3.0
+pymongo>=4.6.0
+sqlalchemy>=2.0.0
 
+# Data generation & validation
+faker>=24.0.0
+pydantic>=2.6.0
 
+# Crypto
+pycryptodome>=3.20.0
+pycryptodomex>=3.20.0
+
+# Logging
+loguru>=0.7.2
+
+# Streamlit
+streamlit>=1.40.0
