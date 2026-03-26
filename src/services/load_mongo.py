@@ -22,6 +22,6 @@ def load_mongo():
             mongo_db["catalog"].insert_many(eval(f.read()))
             logger.info("Data loaded to mongo.....")
     except Exception as e:
-        logger.info(f"Got some error while loading data to mongo {e}")
+        logger.error(f"Got some error while loading data to mongo {e}")
         raise e 
     

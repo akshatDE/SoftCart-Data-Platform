@@ -25,7 +25,8 @@ def get_mysql():
         logger.info(f"DF loaded with {len(sales_df)}")
         return sales_df, customer_df
     except Exception as e:
-        logger.info(f"Got some error {e}")
+        logger.error(f"Got some error {e}")
+        raise e
 # Connect to postgres
 def load_mysql_postgres(sales_df, customer_df):
     try:
@@ -41,7 +42,8 @@ def load_mysql_postgres(sales_df, customer_df):
         logger.info("Sales and customer data loaded....")
 
     except Exception as e:
-        logger.info(f"Got some error{e}")
+        logger.error(f"Got some error{e}")
+        raise e
 
 def get_mongo():
     try:
@@ -51,7 +53,8 @@ def get_mongo():
         catalog_df.drop(columns="_id",inplace=True)
         return catalog_df
     except Exception as e:
-        logger.info(f"Got some error {e}")
+        logger.error(f"Got some error {e}")
+        raise e
 
 def load_mongo_postgres(catalog_df):
     try:
@@ -63,7 +66,8 @@ def load_mongo_postgres(catalog_df):
         catalog_df.to_sql("catalog",postgres_eng,schema="staging",if_exists="append",index=False)
         logger.info("Catalog data loaded....")
     except Exception as e:
-        logger.info(f"Got some error....{e}")
+        logger.error(f"Failed to load catalog data to postgres: {e}")
+        raise e
 
 if __name__ == "__main__":
     try:

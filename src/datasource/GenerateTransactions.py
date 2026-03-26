@@ -40,6 +40,6 @@ def generate_transactions(catalog, n):
         return sales_data
 
     except Exception as e:
-        logger.info(f"Got some error {e}")
-    
+        logger.error(f"Error generating transaction data: {e}")
+        raise e
      

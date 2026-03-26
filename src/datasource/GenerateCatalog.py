@@ -28,6 +28,7 @@ def generate_catalog_data(models):
     
     except Exception as e:
         logger.error(f"Got some error while genrating products catalog data {e}")
+        raise e
 
 
 

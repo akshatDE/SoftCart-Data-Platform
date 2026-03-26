@@ -48,7 +48,8 @@ class MySqlConnection:
 
 
         except Exception as e:
-            logger.info(f"Got Some error {e}")
+            logger.error(f"Error creating MySQL engine: {e}")
+            raise e
 
     def close(self):
         if self.connection and self.connection.is_connected():

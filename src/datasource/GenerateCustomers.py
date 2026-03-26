@@ -30,4 +30,5 @@ def generate_customers():
             customer_details.append(customer_dict)
         return customer_details
     except Exception as e:
-        logger.info(f"Got some error{e}")
+        logger.error(f"Error generating customer data: {e}")
+        raise e

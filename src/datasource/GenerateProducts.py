@@ -66,4 +66,5 @@ def generate_products(**kwargs):
                     products.append(version + suf)
         return products
     except Exception as e:
-        logger.error(f"Got some error {e}")
+        logger.error(f"Error generating product data: {e}")
+        raise e

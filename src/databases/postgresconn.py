@@ -94,7 +94,8 @@ class PostgreSQLConnection:
             logger.info(f"Postgres engine created {engine}")
             return engine
         except Exception as e:
-            logger.info(f"Got some error {e} ")
+            logger.error(f"Error creating Postgres engine: {e} ")
+            raise e
 
         
 

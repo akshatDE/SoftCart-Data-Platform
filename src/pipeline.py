@@ -39,7 +39,8 @@ def data_to_csv():
         customer_df.to_csv("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/data/customers.csv",index=False)
 
     except Exception as e:
-            logger.info(f"Got some exception {e}")
+            logger.error(f"Failed to generate data: {e}")
+            raise e
 
 
 # Execute the pipeline
@@ -67,6 +68,6 @@ if __name__ == "__main__":
 
 
     except Exception as e:
-        logger.info(f"Got some exception {e}")
-    
+        logger.error(f"Failed to execute pipeline: {e}")
+        raise e
     
