@@ -18,3 +18,11 @@ SoftCartCapstone/resources/config_file.ini
 # testing dir
 testing/
 
+
+# ignore airflow logs
+airflow/logs/
+
+# only track dag files
+airflow/config/
+airflow/output_files/
+airflow/plugins/

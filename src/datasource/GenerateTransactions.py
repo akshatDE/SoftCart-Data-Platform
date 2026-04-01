@@ -1,7 +1,7 @@
 from src.datasource.GenerateCatalog import generate_catalog_data
 from src.datasource.GenerateProducts import generate_products,product_config
 from src.datasource.GenerateCustomers import generate_customers
-from src.utility.custom_logger import logger
+from loguru import logger
 import random
 from faker import Faker
 

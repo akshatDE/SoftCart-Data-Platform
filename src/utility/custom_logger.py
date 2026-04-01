@@ -3,25 +3,20 @@ import sys
 from configparser import ConfigParser
 import os
 
-
 config = ConfigParser()
-config_path = "/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/resources/config_file.ini"
+base_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(base_dir, "..", "..", "resources", "config_file.ini")
 config.read(config_path)
 
-log_level = config["default"]["log_level"]
+log_level = config.get("default", "log_level", fallback="INFO")
 
-log_dir = "/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/logs"
-
-# create logs folder if it does not exist
+log_dir = os.path.join(base_dir, "..", "..", "logs")
 os.makedirs(log_dir, exist_ok=True)
 
-# full path of log file
 log_file = os.path.join(log_dir, "app_log.log")
 
 logger.remove()
-
 logger.add(sys.stderr, level=log_level)
-
 logger.add(
     log_file,
     level=log_level,

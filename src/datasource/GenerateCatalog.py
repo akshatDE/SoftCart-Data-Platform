@@ -1,4 +1,4 @@
-from src.utility.custom_logger import logger
+from loguru import logger
 import random
 
 

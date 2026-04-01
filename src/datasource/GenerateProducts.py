@@ -1,4 +1,4 @@
-from src.utility.custom_logger import logger
+from loguru import logger
 def product_config():
     product_config ={
         "watches" : {
