@@ -194,7 +194,7 @@ database:softcart_staging
 - [x] Dimensional modeling (star schema in analytics layer)
 - [x] Streamlit / Tableau dashboards
 - [x] CRON scheduling
-- [ ] Apache Airflow migration
+- [x] Apache Airflow migration
 - [ ] Snowflake cloud DWH
 - [ ] FastAPI serving layer
 - [ ] Ollama text-to-SQL analytics
