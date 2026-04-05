@@ -26,3 +26,6 @@ airflow/logs/
 airflow/config/
 airflow/output_files/
 airflow/plugins/
+
+# env files
+src/datawarehouse/.env
