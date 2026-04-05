@@ -9,7 +9,7 @@ import pandas as pd
 import os
 
 config = ConfigParser()
-config_path="/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/resources/config_file.ini"
+config_path = "/opt/airflow/resources/config_file.ini"
 config.read(config_path)
 
 # Connect to MySQL
@@ -33,10 +33,9 @@ def load_mysql_postgres(sales_df, customer_df):
 
         postgres_conn = PostgreSQLConnection.get_instance(config=config)
         postgres_eng =postgres_conn.get_engine()
-        with postgres_eng.connect() as conn:
+        with postgres_eng.begin() as conn:
             conn.execute(text("TRUNCATE staging.sales_data"))
             conn.execute(text("TRUNCATE staging.customers"))
-            conn.commit()
         sales_df.to_sql("sales_data",postgres_eng,schema="staging",if_exists="append",index=False)
         customer_df.to_sql("customers",postgres_eng,schema="staging",if_exists="append",index=False)
         logger.info("Sales and customer data loaded....")
@@ -60,9 +59,8 @@ def load_mongo_postgres(catalog_df):
     try:
         postgres_conn = PostgreSQLConnection.get_instance(config=config)
         postgres_eng = postgres_conn.get_engine()
-        with postgres_eng.connect() as conn:
+        with postgres_eng.begin() as conn:
             conn.execute(text("TRUNCATE staging.catalog"))
-            conn.commit()
         catalog_df.to_sql("catalog",postgres_eng,schema="staging",if_exists="append",index=False)
         logger.info("Catalog data loaded....")
     except Exception as e:

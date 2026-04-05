@@ -7,7 +7,7 @@ import os
 
 config = ConfigParser()
 
-config_path="/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/resources/config_file.ini"
+config_path = "/opt/airflow/resources/config_file.ini"
 config.read(config_path)
 
 # Set up the connection to the postgres analytics schema
@@ -21,7 +21,7 @@ def load_analytics():
 
         # Truncate the tables in the analytics schema & Load the dimension tables first and then the fact tables
 
-        with postgres_eng.connect() as conn:
+        with postgres_eng.begin() as conn:
             logger.info("Truncating tables...")
             conn.execute(text("TRUNCATE analytics.fact_sales CASCADE"))
             conn.execute(text("TRUNCATE analytics.dim_date CASCADE"))
@@ -91,8 +91,6 @@ def load_analytics():
                 AND sd.discount_percent = dp.discount_percent;
                 """))
             logger.info("Fact sales loaded successfully")
-
-            conn.commit()
             conn.close()
     except Exception as e:
         logger.error(f"Error loading analytics data: {e}")

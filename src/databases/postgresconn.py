@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
-from src.utility.encrypt_decrypt import decrypt
 from src.utility.custom_logger import logger
 import psycopg2
 import psycopg2.extras
@@ -74,7 +73,7 @@ class PostgreSQLConnection:
                 host=self.config["postgresql"]["host"],
                 port=self.config["postgresql"].get("port", 5432),  # Default PostgreSQL port
                 user=self.config["postgresql"]["user"],
-                password= decrypt(self.config["postgresql"]["password"]),
+                password= self.config["postgresql"]["password"],
                 database=self.config["postgresql"]["database"],
             )
             # Set autocommit to False (default behavior)
@@ -85,10 +84,10 @@ class PostgreSQLConnection:
             raise e
     def get_engine(self):
         try:
-            pswd = quote_plus(decrypt(self.config["postgresql"]["password"]))
+            pswd = quote_plus(self.config["postgresql"]["password"])
             engine = create_engine(
                 f"postgresql+psycopg2://{self.config['postgresql']['user']}:{pswd}"
-                f"@127.0.0.1:{self.config['postgresql']['port']}"
+                f"@{self.config['postgresql']['host']}:{self.config['postgresql']['port']}"
                 f"/{self.config['postgresql']['database']}"
             )
             logger.info(f"Postgres engine created {engine}")

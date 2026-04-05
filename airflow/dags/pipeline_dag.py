@@ -10,14 +10,23 @@ from src.databases.postgresconn import PostgreSQLConnection
 from src.databases.mongoconn import MongoConnection
 from loguru import logger
 from src.services.load_mongo import load_mongo
-from src.services.load_mysql import load_mysql
 from src.services.staging import get_mysql,load_mysql_postgres,get_mongo,load_mongo_postgres
 from src.services.analytics import load_analytics
 from datetime import datetime, timedelta
+from configparser import ConfigParser
 import pandas as pd
 import os
 import time
 from datetime import datetime, timedelta
+import sqlalchemy
+from sqlalchemy import text, create_engine
+from urllib.parse import quote_plus
+
+
+config = ConfigParser()
+config_path = "/opt/airflow/resources/config_file.ini"
+config.read(config_path)
+print(config.sections()) 
 
 def data_to_csv():
     try:
@@ -48,9 +57,96 @@ def data_to_csv():
             logger.error(f"Failed to generate data: {e}")
             raise e
 
+def load_mysql():
+    try:
+  
+        data_path = ["/opt/airflow/data/transactional.csv",
+                     "/opt/airflow/data/customers.csv"
+                     ]
+        
+        mysql_con = MySqlConnection.get_instance(config=config)
+        logger.info(f"Connected to mysql ready for data loading.....")
+        mysql_cur =mysql_con.connection.cursor()
+        for file in data_path:
+            if "transactional" in file:
+                mysql_cur.execute("SELECT COUNT(*) FROM sales_data;")
+                count_before = mysql_cur.fetchone()[0]
+                logger.info(f"Existing data in sales_data table is {count_before} records.....")
+                if count_before > 0:
+                    mysql_cur.execute("TRUNCATE TABLE sales_data;")
+                    logger.info("Existing data in sales_data table truncated.....")
+                mysql_cur.execute(f"LOAD DATA LOCAL INFILE '{file}' INTO TABLE sales_data FIELDS TERMINATED BY ',' IGNORE 1 LINES;")
+                logger.info(f"Sales data loaded to mysql.....")
+            elif "customers" in file:
+                mysql_cur.execute("SELECT COUNT(*) FROM customers;")
+                count_before = mysql_cur.fetchone()[0]
+                logger.info(f"Existing data in customers table is {count_before} records.....")
+                if count_before > 0:
+                    mysql_cur.execute("TRUNCATE TABLE customers;")
+                    logger.info("Existing data in customers table truncated.....")
+                mysql_cur.execute(f"LOAD DATA LOCAL INFILE '{file}' INTO TABLE customers FIELDS TERMINATED BY ',' IGNORE 1 LINES;")
+                logger.info(f"Customer data loaded to mysql.....")
 
+        logger.info("Data loading to mysql completed.....")
+        mysql_con.connection.commit()
+        mysql_cur.close()
+        mysql_con.connection.close()
+
+    except Exception as e:
+        logger.error(f"Got some error while loading data to mysql {e}")
+        raise e
     
+def load_mongo():
+    try:
+        data_path = "/opt/airflow/data/catalog.json"
+        
+        client = MongoConnection.get_instance(config=config)
+        mongo_db = client.mongo_db
+        with open(data_path,"r") as f:
+            # if collection is aleady there drop it
+            if "catalog" in mongo_db.list_collection_names():
+                logger.info("Collection already exists, dropping existing collection and creating new collection.....")
+                mongo_db["catalog"].drop()
+            else:
+                logger.info("Collection does not exist, creating new collection.....")
+            mongo_db["catalog"].insert_many(eval(f.read()))
+            logger.info("Data loaded to mongo.....")
+    except Exception as e:
+        logger.error(f"Got some error while loading data to mongo {e}")
+        raise e
 
+# Load to staging
+def load_staging():
+    try:
+        sales_df, customer_df = get_mysql()
+        catalog_df = get_mongo()
+        load_mysql_postgres(sales_df, customer_df)
+        load_mongo_postgres(catalog_df)
+        logger.info("Data loaded to staging.....")
+    except Exception as e:
+        logger.error(f"Got some error while loading data to staging {e}")
+        raise e
+    
+def load_analytics():
+    try:
+        cfg = config["postgresql"]
+        password = quote_plus(cfg["password"])
+        engine = create_engine(
+            f"postgresql+psycopg2://{cfg['user']}:{password}@{cfg['host']}:{cfg['port']}/{cfg['database']}"
+        )
+
+        with engine.begin() as conn:
+            logger.info("Truncating tables...")
+            conn.execute(text("TRUNCATE analytics.fact_sales CASCADE"))
+            conn.execute(text("TRUNCATE analytics.dim_date CASCADE"))
+            conn.execute(text("TRUNCATE analytics.dim_channel RESTART IDENTITY CASCADE"))
+            conn.execute(text("TRUNCATE analytics.dim_promotion RESTART IDENTITY CASCADE"))
+            conn.execute(text("TRUNCATE analytics.dim_customer CASCADE"))
+            conn.execute(text("TRUNCATE analytics.dim_product CASCADE"))
+            # ... rest of your INSERT statements stay the same
+    except Exception as e:
+        logger.error(f"Error loading analytics: {e}")
+        raise
 
 # Creating an Object of DAG Class
 default_args = {
@@ -72,15 +168,31 @@ generate_data_task = PythonOperator(
     dag=dag
 )
 
-# Testing the generated data
-test_data_task = BashOperator(
-    task_id='test_data',
-    bash_command='head -n 5 /opt/airflow/data/catalog.json && head -n 5 /opt/airflow/data/transactional.csv && head -n 5 /opt/airflow/data/customers.csv',
+# Task 2: Load data to OLTP
+load_mysql_task = PythonOperator(
+    task_id='load_mysql',
+    python_callable=load_mysql,
     dag=dag
 )
 
+# Task 3: Load to MongoDB
+load_mongo_task = PythonOperator(
+    task_id='load_mongo',
+    python_callable=load_mongo,
+    dag=dag
+)
+# Task 4: Load to staging
+load_staging_task = PythonOperator(
+    task_id='load_staging',
+    python_callable=load_staging,
+    dag=dag
+)
+# Task 5: Load to analytics
+load_analytics_task = PythonOperator(
+    task_id='load_analytics',
+    python_callable=load_analytics,
+    dag=dag)
 
-# Dependency
-generate_data_task >> test_data_task
-
+# Setting up dependencies
+generate_data_task >> [load_mysql_task, load_mongo_task] >> load_staging_task >> load_analytics_task
 

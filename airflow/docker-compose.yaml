@@ -92,6 +92,9 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
+  networks:
+    - default
+    - softcart_network
 
 services:
   postgres:
@@ -343,3 +346,7 @@ services:
 
 volumes:
   postgres-db-volume:
+
+networks:
+  softcart_network:
+    external: true

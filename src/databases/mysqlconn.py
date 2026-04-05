@@ -1,4 +1,3 @@
-from src.utility.encrypt_decrypt import decrypt
 from src.utility.custom_logger import logger
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
@@ -30,7 +29,7 @@ class MySqlConnection:
                 host=self.config["mysql"]["host"],
                 port=int(self.config["mysql"]["port"]),
                 user="root",
-                password=decrypt(self.config["mysql"]["root_password"]),
+                password=self.config["mysql"]["root_password"],
                 database=self.config["mysql"]["database"],
                 allow_local_infile=True
             )
@@ -41,7 +40,7 @@ class MySqlConnection:
         
     def get_engine(self):
         try:
-            pswd = quote_plus(decrypt(self.config["mysql"]["password"]))
+            pswd = quote_plus(self.config["mysql"]["password"])
             engine = create_engine(f"mysql+mysqlconnector://{self.config["mysql"]["user"]}:{pswd}@{self.config["mysql"]["host"]}:{self.config["mysql"]["port"]}/{self.config["mysql"]["database"]}")
             logger.info(f"Connection successful {engine}")
             return engine
