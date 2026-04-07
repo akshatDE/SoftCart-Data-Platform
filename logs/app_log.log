@@ -437,3 +437,152 @@ DROP TABLE staging.catalog]
 2026-03-26 16:10:19.421 | INFO     | src.services.analytics:load_analytics:73 - Dim product loaded successfully
 2026-03-26 16:10:20.792 | INFO     | src.services.analytics:load_analytics:93 - Fact sales loaded successfully
 2026-03-26 16:10:20.794 | INFO     | __main__:<module>:67 - Step 4: Analytics loaded
+2026-04-06 19:27:37.345 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 19:27:39.032 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-06 19:33:04.810 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 19:33:05.082 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: 'postgresql'
+2026-04-06 21:04:30.964 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 21:05:42.867 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 21:05:42.902 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: 'NoneType' object is not subscriptable
+2026-04-06 21:07:36.369 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 21:07:36.398 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: 'postgresql'
+2026-04-06 21:09:26.337 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 21:09:26.752 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-06 21:30:17.197 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 21:30:19.025 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-06 21:33:07.993 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-06 21:33:08.163 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-06 21:33:08.228 | INFO     | src.databases.postgresconn:get_engine:93 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-06 21:33:08.228 | INFO     | __main__:<module>:42 - PostgreSQL engine: Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 15:09:30.958 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 15:09:35.006 | INFO     | __main__:connect_to_snowflake:32 - Connected. Tables in schema: [(datetime.datetime(2026, 4, 4, 18, 15, 28, 290000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CHANNEL', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 425000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CUSTOMER', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 830000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_DATE', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 26, 848000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PRODUCT', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 28, 702000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PROMOTION', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 29, 54000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'FACT_SALES', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF')]
+2026-04-07 15:09:35.203 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-07 15:13:32.471 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 15:14:28.222 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 15:14:29.927 | INFO     | __main__:connect_to_snowflake:32 - Connected. Tables in schema: [(datetime.datetime(2026, 4, 4, 18, 15, 28, 290000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CHANNEL', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 425000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CUSTOMER', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 830000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_DATE', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 26, 848000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PRODUCT', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 28, 702000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PROMOTION', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 29, 54000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'FACT_SALES', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF')]
+2026-04-07 15:14:30.058 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: 'postgresql'
+2026-04-07 15:14:43.373 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 15:14:44.685 | INFO     | __main__:connect_to_snowflake:32 - Connected. Tables in schema: [(datetime.datetime(2026, 4, 4, 18, 15, 28, 290000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CHANNEL', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 425000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CUSTOMER', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 830000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_DATE', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 26, 848000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PRODUCT', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 28, 702000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PROMOTION', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 29, 54000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'FACT_SALES', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF')]
+2026-04-07 15:14:44.883 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: 'host'
+2026-04-07 15:19:24.954 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 15:19:26.206 | INFO     | __main__:connect_to_snowflake:32 - Connected. Tables in schema: [(datetime.datetime(2026, 4, 4, 18, 15, 28, 290000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CHANNEL', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 425000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CUSTOMER', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 830000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_DATE', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 26, 848000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PRODUCT', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 28, 702000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PROMOTION', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 29, 54000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'FACT_SALES', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF')]
+2026-04-07 15:19:26.500 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 15:19:26.569 | INFO     | src.databases.postgresconn:get_engine:93 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 15:19:26.569 | INFO     | __main__:<module>:43 - PostgreSQL engine: Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 15:19:26.627 | INFO     | __main__:<module>:47 - Catalog data from Postgres:    product_id               product_model product_type  product_price
+0        1000        Apple Watch Series 8      watches          356.0
+1        1001  Apple Watch Series 8 Ultra      watches           71.0
+2        1002     Apple Watch Series 8 SE      watches          133.0
+3        1003        Apple Watch Series 9      watches          292.0
+4        1004  Apple Watch Series 9 Ultra      watches          296.0
+2026-04-07 15:19:26.630 | ERROR    | __main__:<module>:55 - Error reading from Postgres: (psycopg2.errors.UndefinedTable) relation "staging.customer" does not exist
+LINE 1: SELECT * FROM staging.customer
+                      ^
+
+[SQL: SELECT * FROM staging.customer]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-04-07 15:20:27.402 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 15:20:28.923 | INFO     | __main__:connect_to_snowflake:32 - Connected. Tables in schema: [(datetime.datetime(2026, 4, 4, 18, 15, 28, 290000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CHANNEL', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 425000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CUSTOMER', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 830000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_DATE', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 26, 848000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PRODUCT', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 28, 702000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PROMOTION', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 29, 54000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'FACT_SALES', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF')]
+2026-04-07 15:20:29.152 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 15:20:29.196 | INFO     | src.databases.postgresconn:get_engine:93 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 15:20:29.196 | INFO     | __main__:<module>:43 - PostgreSQL engine: Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 15:20:29.259 | INFO     | __main__:<module>:47 - Catalog data from Postgres:    product_id               product_model product_type  product_price
+0        1000        Apple Watch Series 8      watches          356.0
+1        1001  Apple Watch Series 8 Ultra      watches           71.0
+2        1002     Apple Watch Series 8 SE      watches          133.0
+3        1003        Apple Watch Series 9      watches          292.0
+4        1004  Apple Watch Series 9 Ultra      watches          296.0
+2026-04-07 15:20:29.273 | INFO     | __main__:<module>:50 - Customer data from Postgres:    customer_id first_name last_name                    email      segment
+0            1      Dylan   Donovan   DylanDonovan@gmail.com    Corporate
+1            2    Zachary    Fields  ZacharyFields@gmail.com     Consumer
+2            3      Emily     Riley     EmilyRiley@gmail.com     Consumer
+3            4   Nicholas     Adams  NicholasAdams@gmail.com     Consumer
+4            5      Sarah     Stone     SarahStone@gmail.com  Home Office
+2026-04-07 15:20:29.276 | ERROR    | __main__:<module>:55 - Error reading from Postgres: (psycopg2.errors.UndefinedTable) relation "staging.sales" does not exist
+LINE 1: SELECT * FROM staging.sales
+                      ^
+
+[SQL: SELECT * FROM staging.sales]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-04-07 15:20:48.568 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 15:20:50.387 | INFO     | __main__:connect_to_snowflake:32 - Connected. Tables in schema: [(datetime.datetime(2026, 4, 4, 18, 15, 28, 290000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CHANNEL', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 425000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_CUSTOMER', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 27, 830000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_DATE', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 26, 848000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PRODUCT', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 28, 702000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'DIM_PROMOTION', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF'), (datetime.datetime(2026, 4, 4, 18, 15, 29, 54000, tzinfo=<DstTzInfo 'America/Los_Angeles' PDT-1 day, 17:00:00 DST>), 'FACT_SALES', 'SOFTCART_DWH', 'ANALYITCS', 'TABLE', '', '', 0, 0, 'ACCOUNTADMIN', '1', 'OFF', 'OFF', 'OFF', None, None, 'N', 'N', 'ROLE', 'N', 'N', 'N', 'N', 'N', 'N', 'OFF')]
+2026-04-07 15:20:50.558 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 15:20:50.592 | INFO     | src.databases.postgresconn:get_engine:93 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 15:20:50.592 | INFO     | __main__:<module>:43 - PostgreSQL engine: Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 15:20:50.629 | INFO     | __main__:<module>:47 - Catalog data from Postgres:    product_id               product_model product_type  product_price
+0        1000        Apple Watch Series 8      watches          356.0
+1        1001  Apple Watch Series 8 Ultra      watches           71.0
+2        1002     Apple Watch Series 8 SE      watches          133.0
+3        1003        Apple Watch Series 9      watches          292.0
+4        1004  Apple Watch Series 9 Ultra      watches          296.0
+2026-04-07 15:20:50.636 | INFO     | __main__:<module>:50 - Customer data from Postgres:    customer_id first_name last_name                    email      segment
+0            1      Dylan   Donovan   DylanDonovan@gmail.com    Corporate
+1            2    Zachary    Fields  ZacharyFields@gmail.com     Consumer
+2            3      Emily     Riley     EmilyRiley@gmail.com     Consumer
+3            4   Nicholas     Adams  NicholasAdams@gmail.com     Consumer
+4            5      Sarah     Stone     SarahStone@gmail.com  Home Office
+2026-04-07 15:20:50.989 | INFO     | __main__:<module>:53 - Sales data from Postgres:        id  product_id  customer_id  quantity  price          time_stamp     channel    promo_code  discount_percent
+0  100001        1014          955         1   92.8 2025-12-22 14:57:32    In-Store  Black Friday              20.0
+1  100002        1113          331         1  464.4 2026-03-18 00:25:52  Mobile App  Holiday Sale              10.0
+2  100003        1103          872         1  621.0 2025-03-31 05:56:00      Online  Holiday Sale              10.0
+3  100004        1043          600         2  459.0 2024-04-13 05:10:00  Mobile App          None               0.0
+4  100005        1094          921         1  614.4 2025-10-18 17:50:19      Online  Black Friday              20.0
+2026-04-07 16:20:15.707 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 16:20:17.679 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 16:20:17.687 | INFO     | __main__:extract_data_from_postgres:26 - Catalog data extracted successfully with shape: (141, 4)
+2026-04-07 16:20:18.161 | INFO     | __main__:extract_data_from_postgres:28 - Sales data extracted successfully with shape: (100000, 9)
+2026-04-07 16:20:18.165 | INFO     | __main__:extract_data_from_postgres:30 - Customers data extracted successfully with shape: (1000, 5)
+2026-04-07 16:20:18.165 | INFO     | __main__:extract_data_from_postgres:32 - Data extracted from PostgreSQL successfully and saved as DataFrames
+2026-04-07 16:20:18.177 | INFO     | __main__:<module>:43 - Catalog DataFrame head:
+   product_id               product_model product_type  product_price
+0        1000        Apple Watch Series 8      watches          356.0
+1        1001  Apple Watch Series 8 Ultra      watches           71.0
+2        1002     Apple Watch Series 8 SE      watches          133.0
+3        1003        Apple Watch Series 9      watches          292.0
+4        1004  Apple Watch Series 9 Ultra      watches          296.0
+2026-04-07 16:20:18.182 | INFO     | __main__:<module>:44 - Sales Data DataFrame head:
+       id  product_id  customer_id  quantity  price          time_stamp     channel    promo_code  discount_percent
+0  100001        1014          955         1   92.8 2025-12-22 14:57:32    In-Store  Black Friday              20.0
+1  100002        1113          331         1  464.4 2026-03-18 00:25:52  Mobile App  Holiday Sale              10.0
+2  100003        1103          872         1  621.0 2025-03-31 05:56:00      Online  Holiday Sale              10.0
+3  100004        1043          600         2  459.0 2024-04-13 05:10:00  Mobile App          None               0.0
+4  100005        1094          921         1  614.4 2025-10-18 17:50:19      Online  Black Friday              20.0
+2026-04-07 16:20:18.183 | INFO     | __main__:<module>:45 - Customers DataFrame head:
+   customer_id first_name last_name                    email      segment
+0            1      Dylan   Donovan   DylanDonovan@gmail.com    Corporate
+1            2    Zachary    Fields  ZacharyFields@gmail.com     Consumer
+2            3      Emily     Riley     EmilyRiley@gmail.com     Consumer
+3            4   Nicholas     Adams  NicholasAdams@gmail.com     Consumer
+4            5      Sarah     Stone     SarahStone@gmail.com  Home Office
+2026-04-07 16:23:40.077 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 16:23:40.153 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 16:23:40.218 | INFO     | src.databases.postgresconn:get_engine:93 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 16:23:40.237 | INFO     | __main__:extract_data_from_postgres:28 - Catalog data extracted successfully with shape: (141, 4)
+2026-04-07 16:23:40.583 | INFO     | __main__:extract_data_from_postgres:30 - Sales data extracted successfully with shape: (100000, 9)
+2026-04-07 16:23:40.587 | INFO     | __main__:extract_data_from_postgres:32 - Customers data extracted successfully with shape: (1000, 5)
+2026-04-07 16:23:40.587 | INFO     | __main__:extract_data_from_postgres:34 - Data extracted from PostgreSQL successfully and saved as DataFrames
+2026-04-07 16:23:40.592 | INFO     | __main__:<module>:45 - Catalog DataFrame head:
+   product_id               product_model product_type  product_price
+0        1000        Apple Watch Series 8      watches          356.0
+1        1001  Apple Watch Series 8 Ultra      watches           71.0
+2        1002     Apple Watch Series 8 SE      watches          133.0
+3        1003        Apple Watch Series 9      watches          292.0
+4        1004  Apple Watch Series 9 Ultra      watches          296.0
+2026-04-07 16:23:40.595 | INFO     | __main__:<module>:46 - Sales Data DataFrame head:
+       id  product_id  customer_id  quantity  price          time_stamp     channel    promo_code  discount_percent
+0  100001        1014          955         1   92.8 2025-12-22 14:57:32    In-Store  Black Friday              20.0
+1  100002        1113          331         1  464.4 2026-03-18 00:25:52  Mobile App  Holiday Sale              10.0
+2  100003        1103          872         1  621.0 2025-03-31 05:56:00      Online  Holiday Sale              10.0
+3  100004        1043          600         2  459.0 2024-04-13 05:10:00  Mobile App          None               0.0
+4  100005        1094          921         1  614.4 2025-10-18 17:50:19      Online  Black Friday              20.0
+2026-04-07 16:23:40.596 | INFO     | __main__:<module>:47 - Customers DataFrame head:
+   customer_id first_name last_name                    email      segment
+0            1      Dylan   Donovan   DylanDonovan@gmail.com    Corporate
+1            2    Zachary    Fields  ZacharyFields@gmail.com     Consumer
+2            3      Emily     Riley     EmilyRiley@gmail.com     Consumer
+3            4   Nicholas     Adams  NicholasAdams@gmail.com     Consumer
+4            5      Sarah     Stone     SarahStone@gmail.com  Home Office

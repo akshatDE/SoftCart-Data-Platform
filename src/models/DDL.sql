@@ -27,10 +27,10 @@ CREATE TABLE IF NOT EXISTS softcart_sales.customers (
 
 CREATE SCHEMA IF NOT EXISTS staging;
 
-CREATE TABLE IF NOT EXISTS staging.catalog (
-    _id VARCHAR(255) PRIMARY KEY,
-    product_type VARCHAR(100),
+CREATE TABLE staging.catalog (
+    product_id INT PRIMARY KEY,
     product_model VARCHAR(100),
+    product_type VARCHAR(50),
     product_price DECIMAL(10,2)
 );
 

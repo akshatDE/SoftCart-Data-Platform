@@ -71,7 +71,7 @@ class PostgreSQLConnection:
         try:
             self.connection = psycopg2.connect(
                 host=self.config["postgresql"]["host"],
-                port=self.config["postgresql"].get("port", 5432),  # Default PostgreSQL port
+                port=self.config["postgresql"]["port"], # Default PostgreSQL port
                 user=self.config["postgresql"]["user"],
                 password= self.config["postgresql"]["password"],
                 database=self.config["postgresql"]["database"],

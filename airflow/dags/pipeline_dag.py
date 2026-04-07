@@ -8,7 +8,6 @@ from src.datasource.GenerateProducts import generate_products, product_config
 from src.databases.mysqlconn import MySqlConnection
 from src.databases.postgresconn import PostgreSQLConnection
 from src.databases.mongoconn import MongoConnection
-from loguru import logger
 from src.services.load_mongo import load_mongo
 from src.services.staging import get_mysql,load_mysql_postgres,get_mongo,load_mongo_postgres
 from src.services.analytics import load_analytics
@@ -21,6 +20,7 @@ from datetime import datetime, timedelta
 import sqlalchemy
 from sqlalchemy import text, create_engine
 from urllib.parse import quote_plus
+from loguru import logger
 
 
 config = ConfigParser()
