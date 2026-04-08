@@ -6,7 +6,7 @@ An end-to-end ecommerce data engineering platform simulating real-world data inf
 
 ## Architecture
 
-![Softcart_arch](Softcart_arch.png)
+![ArchDaigramSoftCart](ArchDaigramSoftCart.png)
 
 ```
 Data Generation (Python)
