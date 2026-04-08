@@ -19,6 +19,9 @@ from dotenv import load_dotenv
 import pandas as pd
 import os
 
+load_dotenv()
+
+
 def data_to_csv():
     try:
         config = product_config()

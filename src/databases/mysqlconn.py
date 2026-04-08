@@ -5,7 +5,6 @@ import mysql.connector
 import configparser
 import pandas as pd
 
-
 class MySqlConnection:
     _instance = None  # Singleton instance
 
