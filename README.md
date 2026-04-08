@@ -198,7 +198,7 @@ database:softcart_staging
 - [x] Streamlit / Tableau dashboards
 - [x] CRON scheduling
 - [x] Apache Airflow migration
-- [ ] Snowflake cloud DWH
+- [x] Snowflake cloud DWH
 - [ ] FastAPI serving layer
 - [ ] Ollama text-to-SQL analytics
 
