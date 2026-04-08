@@ -96,6 +96,9 @@ SoftCart-Data-Platform/
 - `analytics.dim_channel` — sales channel dimension (Online, In-Store, Mobile App)
 - `analytics.dim_promotion` — promotion dimension (promo code, discount percent)
 
+## Airflow DAG 
+![SoftCart ETL Pipeline](SoftCart_ETL_Pipeline-graph.png)
+
 ---
 
 ## Business Questions
