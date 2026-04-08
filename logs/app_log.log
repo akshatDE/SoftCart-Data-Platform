@@ -586,3 +586,44 @@ LINE 1: SELECT * FROM staging.sales
 2            3      Emily     Riley     EmilyRiley@gmail.com     Consumer
 3            4   Nicholas     Adams  NicholasAdams@gmail.com     Consumer
 4            5      Sarah     Stone     SarahStone@gmail.com  Home Office
+2026-04-07 19:48:32.870 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 19:48:33.256 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: connection to server at "localhost" (::1), port 5433 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-04-07 19:48:33.256 | ERROR    | __main__:<module>:115 - ETL process failed: connection to server at "localhost" (::1), port 5433 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-04-07 19:49:36.540 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 19:49:36.604 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 19:49:36.604 | ERROR    | __main__:<module>:115 - ETL process failed: SnowflakeConnection.get_instance() takes 1 positional argument but 2 were given
+2026-04-07 19:51:37.178 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 19:51:37.247 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 19:51:37.248 | ERROR    | __main__:<module>:115 - ETL process failed: SnowflakeConnection.get_instance() got an unexpected keyword argument 'config'
+2026-04-07 19:53:15.072 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 19:53:15.140 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 19:53:16.073 | INFO     | src.datawarehouse.snowflakeconn:connect:36 - Snowflake Connection successful
+2026-04-07 19:53:16.111 | INFO     | src.databases.postgresconn:get_engine:93 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 19:53:16.159 | INFO     | __main__:extract_data_from_postgres:28 - Catalog data extracted successfully with shape: (141, 4)
+2026-04-07 19:53:16.550 | INFO     | __main__:extract_data_from_postgres:30 - Sales data extracted successfully with shape: (100000, 9)
+2026-04-07 19:53:16.556 | INFO     | __main__:extract_data_from_postgres:32 - Customers data extracted successfully with shape: (1000, 5)
+2026-04-07 19:53:16.556 | INFO     | __main__:extract_data_from_postgres:34 - Data extracted from PostgreSQL successfully and saved as DataFrames
+2026-04-07 19:53:16.566 | INFO     | src.datawarehouse.snowflakeconn:get_engine:52 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-07 19:53:17.673 | ERROR    | __main__:ddl_for_snowflake_staging:80 - Error creating staging tables in Snowflake: Not an executable object: '\n                CREATE SCHEMA IF NOT EXISTS staging;\n            '
+2026-04-07 19:53:17.674 | ERROR    | __main__:<module>:114 - ETL process failed: Not an executable object: '\n                CREATE SCHEMA IF NOT EXISTS staging;\n            '
+2026-04-07 19:54:50.950 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-07 19:54:51.020 | INFO     | src.databases.postgresconn:connect:81 - PostgreSQL Connection successful
+2026-04-07 19:54:52.008 | INFO     | src.datawarehouse.snowflakeconn:connect:36 - Snowflake Connection successful
+2026-04-07 19:54:52.030 | INFO     | src.databases.postgresconn:get_engine:93 - Postgres engine created Engine(postgresql+psycopg2://softcart_user:***@localhost:5433/softcart_staging)
+2026-04-07 19:54:52.060 | INFO     | __main__:extract_data_from_postgres:27 - Catalog data extracted successfully with shape: (141, 4)
+2026-04-07 19:54:52.423 | INFO     | __main__:extract_data_from_postgres:29 - Sales data extracted successfully with shape: (100000, 9)
+2026-04-07 19:54:52.430 | INFO     | __main__:extract_data_from_postgres:31 - Customers data extracted successfully with shape: (1000, 5)
+2026-04-07 19:54:52.430 | INFO     | __main__:extract_data_from_postgres:33 - Data extracted from PostgreSQL successfully and saved as DataFrames
+2026-04-07 19:54:52.434 | INFO     | src.datawarehouse.snowflakeconn:get_engine:52 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-07 19:54:59.262 | INFO     | __main__:load_data_to_snowflake:87 - Catalog data loaded to Snowflake successfully with shape: (141, 4)
+2026-04-07 19:56:11.298 | INFO     | __main__:load_data_to_snowflake:89 - Sales data loaded to Snowflake successfully with shape: (100000, 9)
+2026-04-07 19:56:16.457 | INFO     | __main__:load_data_to_snowflake:91 - Customers data loaded to Snowflake successfully with shape: (1000, 5)
+2026-04-07 19:56:16.458 | INFO     | __main__:load_data_to_snowflake:93 - Data loaded to Snowflake successfully

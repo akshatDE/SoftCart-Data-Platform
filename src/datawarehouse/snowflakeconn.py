@@ -5,20 +5,22 @@ from loguru import logger
 from dotenv import load_dotenv
 import os
 
+load_dotenv("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/airflow/.env")
+
 class SnowflakeConnection:
     """Singleton class to manage Snowflake connection"""
     _instance = None
 
-    def __init__(self):
+    def __init__(self, config=None):
         if SnowflakeConnection._instance is not None:
             raise Exception("Use get_instance() instead of creating a new object.")
         self.connection = None
         self.connect()
 
     @classmethod
-    def get_instance(cls):
+    def get_instance(cls, config=None):
         if cls._instance is None:
-            cls._instance = cls()
+            cls._instance = cls(config=config)
         return cls._instance
 
     def connect(self):
