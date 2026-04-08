@@ -149,6 +149,7 @@ services:
     container_name: postgres_dwh
     restart: unless-stopped
     environment:
+      POSTGRES_PORT: ${POSTGRES_PORT}
       POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

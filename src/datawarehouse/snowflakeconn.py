@@ -5,7 +5,7 @@ from loguru import logger
 from dotenv import load_dotenv
 import os
 
-load_dotenv("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/airflow/.env")
+load_dotenv("/opt/airflow/.env")  # Load environment variables from .env file
 
 class SnowflakeConnection:
     """Singleton class to manage Snowflake connection"""

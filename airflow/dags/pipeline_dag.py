@@ -11,6 +11,13 @@ from src.databases.mongoconn import MongoConnection
 from src.services.load_mongo import load_mongo
 from src.services.staging import get_mysql,load_mysql_postgres,get_mongo,load_mongo_postgres
 from src.services.analytics import load_analytics
+from src.datawarehouse.snowflakeconn import SnowflakeConnection
+from src.datawarehouse.snowflake_etl import extract_data_from_postgres, ddl_for_snowflake_staging, load_data_to_snowflake
+from configparser import ConfigParser
+import os
+from loguru import logger
+from dotenv import load_dotenv
+import pandas as pd
 from datetime import datetime, timedelta
 from configparser import ConfigParser
 import pandas as pd
@@ -115,7 +122,7 @@ def load_mongo():
         logger.error(f"Got some error while loading data to mongo {e}")
         raise e
 
-# Load to staging
+# Load to staging PostgreSQL
 def load_staging():
     try:
         sales_df, customer_df = get_mysql()
@@ -126,7 +133,7 @@ def load_staging():
     except Exception as e:
         logger.error(f"Got some error while loading data to staging {e}")
         raise e
-    
+# Load to analytics schema in PostgreSQL  
 def load_analytics():
     try:
         cfg = config["postgresql"]
@@ -210,6 +217,20 @@ def load_analytics():
         logger.error(f"Error loading analytics: {e}")
         raise
 
+def load_staging_snowflake():
+    try:
+        # Get Snowflake connection
+        snowflake_conn = SnowflakeConnection.get_instance()
+        logger.info("Connected to Snowflake ready for data loading.....")
+
+         # Extract data from PostgreSQL staging
+        pg_conn = PostgreSQLConnection.get_instance(config=config)
+        catalog_df, sales_data_df, customers_df = extract_data_from_postgres(pg_conn)
+    except Exception as e:
+        logger.error(f"Got some error while extracting data from PostgreSQL: {e}")
+        raise e
+
+
 # Creating an Object of DAG Class
 default_args = {
     'owner': 'airflow',
@@ -244,12 +265,19 @@ load_mongo_task = PythonOperator(
     python_callable=load_mongo,
     dag=dag
 )
-# Task 4: Load to staging
+# Task 4: Load to staging PostgreSQL
 load_staging_task = PythonOperator(
     task_id='load_staging',
     python_callable=load_staging,
     dag=dag
 )
+# Task 4: Load to staging Snowflake
+load_staging_snowflake_task = PythonOperator(
+    task_id='load_staging_snowflake',
+    python_callable=load_staging_snowflake,
+    dag=dag
+)
+
 # Task 5: Load to analytics
 load_analytics_task = PythonOperator(
     task_id='load_analytics',
@@ -257,5 +285,5 @@ load_analytics_task = PythonOperator(
     dag=dag)
 
 # Setting up dependencies
-generate_data_task >> [load_mysql_task, load_mongo_task] >> load_staging_task >> load_analytics_task
+generate_data_task >> [load_mysql_task, load_mongo_task] >> load_staging_task >> load_staging_snowflake_task >> load_analytics_task
 
