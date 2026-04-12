@@ -6,7 +6,7 @@ An end-to-end ecommerce data engineering platform simulating real-world data inf
 
 ## Architecture
 
-![assets/ArchDaigramSoftCart.png](assets/ArchDaigramSoftCart.png)
+![ArchDaigramSoftCart](assets/ArchDaigramSoftCart.png)
 ```
 Data Generation (Python)
     ├── catalog.json ──→ MongoDB (Product Catalog)
@@ -71,7 +71,7 @@ SoftCart-Data-Platform/
 ---
 
 ## Data Model
-![assets/data_model_softcart.png](assets/data_model_softcart.png)
+![data_model_softcart(assests/data_model_softcart.png)
 
 ### Source Systems (OLTP)
 
@@ -96,7 +96,7 @@ SoftCart-Data-Platform/
 - `analytics.dim_promotion` — promotion dimension (promo code, discount percent)
 
 ## Airflow DAG 
-![SoftCart ETL Pipeline](assets/SoftCart_ETL_Pipeline-graph.png)
+![SoftCart ETL Pipeline](assests/SoftCart_ETL_Pipeline-graph.png)
 
 ---
 
