@@ -713,3 +713,44 @@ connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection re
 2026-04-12 11:47:18.651 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
 2026-04-12 11:47:38.768 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
 2026-04-12 11:47:38.779 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-12 11:50:19.746 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-12 11:57:27.425 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 11:57:35.788 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 11:57:56.918 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 11:58:23.824 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 11:58:35.262 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-12 11:58:35.275 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-12 11:59:14.255 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 11:59:36.834 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 11:59:56.016 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:01:40.689 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:06:45.567 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:07:08.342 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-12 12:07:08.352 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-12 12:07:44.331 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:08:00.973 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:08:44.610 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-12 12:08:44.637 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-12 12:09:11.684 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-12 12:09:46.429 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-12 12:20:22.106 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:20:34.936 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:21:17.346 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:24:51.251 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:24:54.559 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:24:54.570 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: 'NoneType' object is not subscriptable
+2026-04-12 12:26:05.612 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:26:50.517 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:26:59.234 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-12 12:29:21.856 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:29:26.473 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-12 12:32:26.228 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-12 12:32:56.227 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:32:56.335 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-12 12:39:10.945 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
+
+2026-04-12 12:40:44.579 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized

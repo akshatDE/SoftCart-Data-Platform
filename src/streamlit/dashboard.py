@@ -7,7 +7,13 @@ import pandas as pd
 import plotly.express as px
 import sqlalchemy
 import requests
+import sys
+import os
 from urllib.parse import quote_plus
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
+
+from src.databases.postgresconn import PostgreSQLConnection
+from configparser import ConfigParser
 
 # ─── Page Config ─────────────────────────────────────────────────────────────
 st.set_page_config(page_title="SoftCart Analytics", page_icon="📊", layout="wide")
@@ -21,6 +27,7 @@ def get_engine():
         f"postgresql+psycopg2://softcart_user:{password}@localhost:5433/softcart_staging"
     )
 
+
 def run_query(sql):
     with get_engine().connect() as conn:
         return pd.read_sql(sqlalchemy.text(sql), conn)
@@ -28,18 +35,17 @@ def run_query(sql):
 FASTAPI_URL = "http://localhost:8000"
 
 # ─── Tabs ────────────────────────────────────────────────────────────────────
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "📦 Category",
-    "📈 Trends",
-    "👥 Customers",
-    "🏆 Top Products",
-    "🛒 Channel & Promo",
+tab1, tab2, tab3 = st.tabs([
+    "📦 Products & Trends",
+    "🛍️ Business Insights",
     "🤖 Ask AI"
 ])
 
-# ─── Tab 1: Revenue & Quantity by Category ───────────────────────────────────
+# ─── Tab 1: Product Category Analysis ────────────────────────────────────────
 with tab1:
-    st.header("Revenue & Quantity by Product Category")
+    st.header("Product Category Analysis")
+
+    # Revenue & Quantity by Category
     q1 = run_query("""
         SELECT dp.product_type,
                SUM(fs.product_price * fs.product_quantity) AS total_revenue,
@@ -61,9 +67,10 @@ with tab1:
         fig.update_layout(showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
-# ─── Tab 2: Sales Trends ─────────────────────────────────────────────────────
-with tab2:
-    st.header("Monthly Sales Trends by Category")
+    st.divider()
+
+    # Monthly Trends
+    st.subheader("Monthly Sales Trends")
     q2 = run_query("""
         SELECT d.calendar_year, d.calendar_month, dp.product_type,
                SUM(fs.product_price * fs.product_quantity) AS total_revenue
@@ -78,9 +85,9 @@ with tab2:
                   title="Monthly Revenue Trend by Category", markers=True)
     st.plotly_chart(fig, use_container_width=True)
 
-# ─── Tab 3: Customer Behavior ────────────────────────────────────────────────
-with tab3:
-    st.header("Customer Purchasing Behavior")
+# ─── Tab 2: Business Insights (Customers + Top Products + Channel/Promo) ───
+with tab2:
+    st.header("Customer Behavior")
     q3 = run_query("""
         SELECT c.customer_id, c.segment,
                COUNT(*) AS order_count,
@@ -91,6 +98,7 @@ with tab3:
     """)
     q3["buyer_type"] = q3["order_count"].apply(
         lambda n: "One-Time" if n == 1 else ("Repeat (2-5)" if n <= 5 else "Loyal (6+)"))
+
     col1, col2 = st.columns(2)
     with col1:
         buyer_counts = q3["buyer_type"].value_counts().reset_index()
@@ -109,9 +117,10 @@ with tab3:
         fig.update_layout(showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
-# ─── Tab 4: Revenue Concentration ────────────────────────────────────────────
-with tab4:
-    st.header("Top 15 Products by Revenue")
+    st.divider()
+
+    # Top Products
+    st.subheader("Top 15 Products by Revenue")
     q4 = run_query("""
         SELECT dp.product_model,
                SUM(fs.product_price * fs.product_quantity) AS total_revenue
@@ -126,9 +135,10 @@ with tab4:
     fig.update_layout(yaxis=dict(autorange="reversed"))
     st.plotly_chart(fig, use_container_width=True)
 
-# ─── Tab 5: Channel & Promotion ──────────────────────────────────────────────
-with tab5:
-    st.header("Channel & Promotion Impact")
+    st.divider()
+
+    # Channel & Promotion
+    st.subheader("Channel & Promotion Impact")
     q5_channel = run_query("""
         SELECT dc.channel_name, SUM(fs.product_price * fs.product_quantity) AS total_revenue
         FROM analytics.fact_sales fs
@@ -153,8 +163,8 @@ with tab5:
         fig.update_layout(showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
-# ─── Tab 6: Ask AI (Ollama via FastAPI) ──────────────────────────────────────
-with tab6:
+# ─── Tab 3: Ask AI (Ollama via FastAPI) ──────────────────────────────────────
+with tab3:
     st.header("🤖 Ask Your Data in Plain English")
     st.caption("Powered by Ollama (local LLM) + FastAPI + Snowflake")
 
@@ -210,3 +220,6 @@ with tab6:
                 st.error("⚠️ Cannot connect to FastAPI. Make sure it's running at " + FASTAPI_URL)
             except Exception as e:
                 st.error(f"Error: {e}")
+
+
+

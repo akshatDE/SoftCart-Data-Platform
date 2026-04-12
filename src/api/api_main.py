@@ -17,7 +17,7 @@ config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..
 config.read(config_path)
 
 
-llm = OllamaLLM(model="llama3.2", base_url="http://localhost:11434")
+llm = OllamaLLM(model="sqlcoder", base_url="http://localhost:11434")
 
 schema = """
 You are a Snowflake SQL expert. Generate a valid SQL query.
