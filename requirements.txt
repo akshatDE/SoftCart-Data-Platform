@@ -1,6 +1,7 @@
 # Core data
 pandas>=2.0,<3.0
-pyarrow>=14.0,<16.0
+pyarrow>=18.0,<20.0
+
 
 # Database connectors
 psycopg2-binary>=2.9.9
