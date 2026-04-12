@@ -5,12 +5,107 @@ from configparser import ConfigParser
 from loguru import logger
 import pandas as pd 
 import os
+from langchain_ollama import OllamaLLM
+from langchain_core.prompts import PromptTemplate
+from pydantic import BaseModel
+
+
+
 
 config = ConfigParser()
 config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "resources", "config_file.ini")
 config.read(config_path)
 
+
+llm = OllamaLLM(model="llama3.2", base_url="http://localhost:11434")
+
+schema = """
+You are a Snowflake SQL expert. Generate a valid SQL query.
+
+Schema (all tables in the `analytics` schema):
+- analytics.fact_sales (product_id, customer_id, date_id, channel_id, promo_id, product_quantity, product_price)
+- analytics.dim_product (product_id, product_model, product_type)
+- analytics.dim_customer (customer_id, first_name, last_name, email, segment)
+- analytics.dim_date (date_id, date, calendar_month, calendar_year)
+- analytics.dim_channel (channel_id, channel_name)
+- analytics.dim_promotion (promo_id, promo_code, discount_percent)
+
+RULES:
+1. Always prefix tables with `analytics.`
+2. Use simple table aliases (fs, dp, dc) — NOT nested like `a.fact_sales.customer_id`
+3. Return ONLY the SQL query, no markdown, no explanation
+4. Start with SELECT
+
+EXAMPLE:
+Question: Top 5 products by revenue
+SQL: SELECT dp.product_model, SUM(fs.product_quantity * fs.product_price) AS revenue
+FROM analytics.fact_sales fs
+JOIN analytics.dim_product dp ON fs.product_id = dp.product_id
+GROUP BY dp.product_model
+ORDER BY revenue DESC
+LIMIT 5;
+
+EXAMPLE:
+Question: Revenue by customer segment
+SQL: SELECT dc.segment, SUM(fs.product_quantity * fs.product_price) AS revenue
+FROM analytics.fact_sales fs
+JOIN analytics.dim_customer dc ON fs.customer_id = dc.customer_id
+GROUP BY dc.segment;
+"""
+
+prompt = PromptTemplate.from_template("""
+{schema}
+
+Question: {question}
+SQL:""")
+
+chain = prompt | llm
+
 app = FastAPI()
+
+class AskRequest(BaseModel):
+    question: str
+
+class AskResponse(BaseModel):
+    question: str
+    sql: str
+    data: list[dict]
+
+@app.post("/ask", response_model=AskResponse)
+def ask(payload: AskRequest):
+    question = payload.question  # type-safe, auto-validated
+    
+    sql = chain.invoke({"schema": schema, "question": question}).strip()
+    
+    # cleanup
+    import re
+    sql = re.sub(r"```sql\s*|```", "", sql).strip()
+    sql = sql.split(";")[0].strip() + ";"
+    
+    if not sql.upper().startswith("SELECT"):
+        raise HTTPException(400, f"Only SELECT allowed. Generated: {sql}")
+    
+    engine = SnowflakeConnection.get_instance().get_engine()
+    df = pd.read_sql(sql, engine)
+    
+    return AskResponse(
+        question=question,
+        sql=sql,
+        data=df.to_dict(orient="records")
+    )
+
+@app.post("/ask")
+def ask(payload: dict):
+    sql = chain.invoke({"schema": schema, "question": payload["question"]}).strip()
+    
+    if not sql.upper().startswith("SELECT"):
+        return {"error": "Only SELECT allowed", "sql": sql}
+    
+    engine = SnowflakeConnection.get_instance().get_engine()
+    df = pd.read_sql(sql, engine)
+    return {"sql": sql, "data": df.to_dict(orient="records")}
+
+
 
 def run_query(query: str):
     snowflake_conn = SnowflakeConnection.get_instance()
@@ -88,4 +183,5 @@ async def channels_promotions():
         GROUP BY dc.channel_name, dp.promo_code;
     """
     return run_query(query=query)
+
 

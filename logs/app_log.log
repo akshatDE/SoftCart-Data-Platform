@@ -688,3 +688,24 @@ connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection re
 2026-04-11 20:58:20.693 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
 2026-04-11 20:58:35.192 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
 2026-04-11 20:58:35.199 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 21:06:21.845 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:06:26.057 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:06:56.841 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:07:25.090 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:07:53.041 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:08:25.757 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:10:01.388 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:10:17.310 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:10:38.507 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:14:27.315 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 21:14:27.333 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 21:15:54.363 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:16:09.490 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 21:16:09.513 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 21:40:36.179 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:42:35.749 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 21:42:35.761 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 21:43:36.232 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 21:43:51.149 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 21:43:51.165 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 21:44:57.782 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
