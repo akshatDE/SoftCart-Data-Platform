@@ -4,8 +4,10 @@ from sqlalchemy import create_engine
 from loguru import logger
 from dotenv import load_dotenv
 import os
+import configparser
 
-load_dotenv("/opt/airflow/.env")  # Load environment variables from .env file
+
+load_dotenv("/Users/akshatsharma/Desktop/Personal_Projects/Soft_Cart_Data_Platform/SoftCartDataPlatform/airflow/.env")  # Load environment variables from .env file
 
 class SnowflakeConnection:
     """Singleton class to manage Snowflake connection"""

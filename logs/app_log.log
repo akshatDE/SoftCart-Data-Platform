@@ -627,3 +627,64 @@ connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection re
 2026-04-07 19:56:11.298 | INFO     | __main__:load_data_to_snowflake:89 - Sales data loaded to Snowflake successfully with shape: (100000, 9)
 2026-04-07 19:56:16.457 | INFO     | __main__:load_data_to_snowflake:91 - Customers data loaded to Snowflake successfully with shape: (1000, 5)
 2026-04-07 19:56:16.458 | INFO     | __main__:load_data_to_snowflake:93 - Data loaded to Snowflake successfully
+2026-04-11 19:05:01.351 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:06:07.136 | ERROR    | src.databases.mysqlconn:connect:37 - Database connection error: 2005 (HY000): Unknown MySQL server host 'mysql_db' (8)
+2026-04-11 19:08:12.425 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:08:26.446 | ERROR    | src.databases.mysqlconn:connect:37 - Database connection error: 2005 (HY000): Unknown MySQL server host 'mysql_db' (8)
+2026-04-11 19:09:57.561 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:10:07.253 | INFO     | src.databases.mysqlconn:connect:35 - MySQL Connection successful
+2026-04-11 19:10:07.256 | INFO     | src.api.api:get_user:15 - Connection Success.....<src.databases.mysqlconn.MySqlConnection object at 0x10db4cb30>
+2026-04-11 19:12:56.110 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:13:00.502 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:13:09.168 | INFO     | src.databases.mysqlconn:connect:35 - MySQL Connection successful
+2026-04-11 19:13:09.169 | INFO     | src.api.api:get_user:17 - Connection Success.....<src.databases.mysqlconn.MySqlConnection object at 0x10d780080>
+2026-04-11 19:16:15.978 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:16:28.020 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:16:43.809 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:16:51.615 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:16:52.739 | INFO     | src.databases.mysqlconn:connect:35 - MySQL Connection successful
+2026-04-11 19:16:52.739 | INFO     | src.api.api:get_customers:18 - Connection Success.....<src.databases.mysqlconn.MySqlConnection object at 0x10dd49ee0>
+2026-04-11 19:17:32.625 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:17:35.867 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:19:24.981 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:19:28.258 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:20:56.538 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:20:59.366 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:21:07.112 | INFO     | src.databases.mysqlconn:connect:35 - MySQL Connection successful
+2026-04-11 19:21:07.172 | INFO     | src.databases.mysqlconn:get_engine:44 - Connection successful Engine(mysql+mysqlconnector://softcart_user:***@localhost:3307/softcart_sales)
+2026-04-11 19:21:07.172 | INFO     | src.api.api:get_customers:19 - Connection Success.....<src.databases.mysqlconn.MySqlConnection object at 0x11206af00>
+2026-04-11 19:27:21.839 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:27:27.751 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 19:27:38.102 | ERROR    | src.datawarehouse.snowflakeconn:connect:38 - Error connecting to Snowflake: 'NoneType' object has no attribute 'find'
+2026-04-11 20:46:50.388 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:46:53.706 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:47:12.553 | INFO     | src.databases.mysqlconn:connect:35 - MySQL Connection successful
+2026-04-11 20:47:12.632 | INFO     | src.databases.mysqlconn:get_engine:44 - Connection successful Engine(mysql+mysqlconnector://softcart_user:***@localhost:3307/softcart_sales)
+2026-04-11 20:47:12.633 | INFO     | src.api.api:get_customers:24 - Connection Success.....<src.databases.mysqlconn.MySqlConnection object at 0x10f049b80>
+2026-04-11 20:47:20.433 | ERROR    | src.datawarehouse.snowflakeconn:connect:38 - Error connecting to Snowflake: 'NoneType' object has no attribute 'find'
+2026-04-11 20:47:39.846 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:47:42.501 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:48:40.382 | ERROR    | src.datawarehouse.snowflakeconn:connect:38 - Error connecting to Snowflake: 'NoneType' object has no attribute 'find'
+2026-04-11 20:49:59.943 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:50:04.395 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:50:23.749 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:50:25.624 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:50:38.658 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 20:50:38.675 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 20:50:38.676 | INFO     | src.api.api:revenue_by_category:43 - Connection to Snowflake Success.....<src.datawarehouse.snowflakeconn.SnowflakeConnection object at 0x10ecee2a0>
+2026-04-11 20:53:04.435 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:53:08.053 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:55:11.127 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:55:13.994 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:56:11.901 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:56:15.194 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:56:18.712 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 20:56:18.716 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 20:57:34.521 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:57:37.464 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:57:39.442 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 20:57:39.445 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-11 20:58:17.452 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:58:20.693 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-11 20:58:35.192 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
+2026-04-11 20:58:35.199 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
