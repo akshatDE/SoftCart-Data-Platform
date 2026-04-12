@@ -199,8 +199,8 @@ database:softcart_staging
 - [x] CRON scheduling
 - [x] Apache Airflow migration
 - [x] Snowflake cloud DWH
-- [ ] FastAPI serving layer
-- [ ] Ollama text-to-SQL analytics
+- [x] FastAPI serving layer
+- [x] Ollama text-to-SQL analytics
 
 ---
 
