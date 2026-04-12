@@ -754,3 +754,4 @@ connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection re
 2026-04-12 12:39:10.945 | ERROR    | src.databases.postgresconn:connect:83 - PostgreSQL connection error: could not translate host name "postgres_dwh" to address: nodename nor servname provided, or not known
 
 2026-04-12 12:40:44.579 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
+2026-04-12 12:46:40.005 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
