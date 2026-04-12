@@ -133,6 +133,7 @@ def load_staging():
     except Exception as e:
         logger.error(f"Got some error while loading data to staging {e}")
         raise e
+    
 # Load to analytics schema in PostgreSQL  
 def load_analytics():
     try:
