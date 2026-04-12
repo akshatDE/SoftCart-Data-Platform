@@ -1,6 +1,6 @@
 # SoftCart Data Platform
 
-An end-to-end ecommerce data engineering platform simulating real-world data infrastructure — from source system ingestion through dimensional modeling to analytics dashboards.
+An end-to-end ecommerce data engineering platform simulating real-world data infrastructure — from source system ingestion through dimensional modeling to analytics dashboards. Powered by local LLMs via Ollama for AI-assisted SQL generation.
 
 ---
 
