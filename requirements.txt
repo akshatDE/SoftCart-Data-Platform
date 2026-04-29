@@ -1,4 +1,10 @@
 # Core data
+fastapi
+uvicorn[standard]
+snowflake-connector-python>=3.0.0,<4.0.0
+
+snowflake-sqlalchemy>=1.4.0,<2.0.0
+
 pandas>=2.0,<3.0
 pyarrow>=18.0,<20.0
 
@@ -22,3 +28,6 @@ loguru>=0.7.2
 
 # Streamlit
 streamlit>=1.40.0
+
+langchain-ollama
+langchain

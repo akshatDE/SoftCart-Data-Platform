@@ -227,6 +227,14 @@ def load_staging_snowflake():
          # Extract data from PostgreSQL staging
         pg_conn = PostgreSQLConnection.get_instance(config=config)
         catalog_df, sales_data_df, customers_df = extract_data_from_postgres(pg_conn)
+
+
+        ddl_for_snowflake_staging(snowflake_conn)
+        logger.info("Snowflake DDL executed successfully")
+
+        load_data_to_snowflake(snowflake_conn, catalog_df, sales_data_df, customers_df)
+        logger.info("Data loaded to Snowflake successfully")
+        
     except Exception as e:
         logger.error(f"Got some error while extracting data from PostgreSQL: {e}")
         raise e

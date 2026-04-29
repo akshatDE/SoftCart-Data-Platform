@@ -757,3 +757,4 @@ connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection re
 2026-04-12 12:46:40.005 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized
 2026-04-12 12:58:14.700 | INFO     | src.datawarehouse.snowflakeconn:connect:38 - Snowflake Connection successful
 2026-04-12 12:58:14.716 | INFO     | src.datawarehouse.snowflakeconn:get_engine:54 - Snowflake engine created Engine(snowflake://AKSHATSHANDILYA:***@WMAYBAI-CT78771/SOFTCART_DWH/ANALYITCS?warehouse=COMPUTE_WH)
+2026-04-28 20:38:24.204 | INFO     | src.utility.custom_logger:<module>:28 - Logger initialized

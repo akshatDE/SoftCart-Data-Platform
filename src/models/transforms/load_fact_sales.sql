@@ -8,7 +8,7 @@ SELECT
     dp.promo_id,
     sd.quantity,
     sd.price
-FROM staging.sales_data sd
+FROM STAGING.sales_data sd
 JOIN analytics.dim_channel dc
     ON sd.channel = dc.channel_name
 JOIN analytics.dim_promotion dp

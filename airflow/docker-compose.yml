@@ -165,6 +165,31 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  
+  fastapi:
+    build:
+      context: ..
+      dockerfile: src/api/Dockerfile
+    container_name: fastapi_app
+    restart: unless-stopped
+    env_file:
+      - ${ENV_FILE_PATH:-.env}
+    environment:
+      PYTHONPATH: /app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../src:/app/src
+      - ../resources:/app/resources
+    networks:
+      - softcart_network
+    depends_on:
+      mysql:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+      postgres_dwh:
+        condition: service_healthy
 
   # ---------------------------------------------------------------------------
   # Airflow Infrastructure (Postgres metadata DB + Redis broker)

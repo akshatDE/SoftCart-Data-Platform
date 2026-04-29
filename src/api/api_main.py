@@ -17,30 +17,32 @@ config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..
 config.read(config_path)
 
 
-llm = OllamaLLM(model="sqlcoder", base_url="http://localhost:11434")
+ollama_url = os.getenv("OLLAMA_URL", "http://host.docker.internal:11434")
+llm = OllamaLLM(model="sqlcoder", base_url=ollama_url)
+
 
 schema = """
 You are a Snowflake SQL expert. Generate a valid SQL query.
 
-Schema (all tables in the `analytics` schema):
-- analytics.fact_sales (product_id, customer_id, date_id, channel_id, promo_id, product_quantity, product_price)
-- analytics.dim_product (product_id, product_model, product_type)
-- analytics.dim_customer (customer_id, first_name, last_name, email, segment)
-- analytics.dim_date (date_id, date, calendar_month, calendar_year)
-- analytics.dim_channel (channel_id, channel_name)
-- analytics.dim_promotion (promo_id, promo_code, discount_percent)
+Schema (all tables in the `PUBLIC` schema of the `ANALYTICS` database):
+- ANALYTICS.PUBLIC.FACT_SALES (product_id, customer_id, date_id, channel_id, promo_id, product_quantity, product_price)
+- ANALYTICS.PUBLIC.DIM_PRODUCT (product_id, product_model, product_type)
+- ANALYTICS.PUBLIC.DIM_CUSTOMER (customer_id, first_name, last_name, email, segment)
+- ANALYTICS.PUBLIC.DIM_DATE (date_id, date, calendar_month, calendar_year)
+- ANALYTICS.PUBLIC.DIM_CHANNEL (channel_id, channel_name)
+- ANALYTICS.PUBLIC.DIM_PROMOTION (promo_id, promo_code, discount_percent)
 
 RULES:
-1. Always prefix tables with `analytics.`
-2. Use simple table aliases (fs, dp, dc) — NOT nested like `a.fact_sales.customer_id`
+1. Always fully-qualify tables as ANALYTICS.PUBLIC.<TABLE_NAME>
+2. Use simple table aliases (fs, dp, dc)
 3. Return ONLY the SQL query, no markdown, no explanation
 4. Start with SELECT
 
 EXAMPLE:
 Question: Top 5 products by revenue
 SQL: SELECT dp.product_model, SUM(fs.product_quantity * fs.product_price) AS revenue
-FROM analytics.fact_sales fs
-JOIN analytics.dim_product dp ON fs.product_id = dp.product_id
+FROM ANALYTICS.FACT_SALES fs
+JOIN ANALYTICS.DIM_PRODUCT dp ON fs.product_id = dp.product_id
 GROUP BY dp.product_model
 ORDER BY revenue DESC
 LIMIT 5;
@@ -48,8 +50,8 @@ LIMIT 5;
 EXAMPLE:
 Question: Revenue by customer segment
 SQL: SELECT dc.segment, SUM(fs.product_quantity * fs.product_price) AS revenue
-FROM analytics.fact_sales fs
-JOIN analytics.dim_customer dc ON fs.customer_id = dc.customer_id
+FROM ANALYTICS.FACT_SALES fs
+JOIN ANALYTICS.DIM_CUSTOMER dc ON fs.customer_id = dc.customer_id
 GROUP BY dc.segment;
 """
 
